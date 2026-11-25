@@ -1,5 +1,7 @@
-﻿namespace OpenDotaDotNet.Routes.Players.Models;
+namespace OpenDotaDotNet.Routes.Players.Models;
 
+/// <summary>Aggregated player match counts.</summary>
+[UsedImplicitly]
 public class PlayerCountStats
 {
 	/// <summary>

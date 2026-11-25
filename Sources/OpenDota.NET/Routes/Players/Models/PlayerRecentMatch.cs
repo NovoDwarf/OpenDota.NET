@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a player's recent match
 /// </summary>
-
+[UsedImplicitly]
 public class PlayerRecentMatch
 {
 	/// <summary>
@@ -35,14 +35,14 @@ public class PlayerRecentMatch
 	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/game_mode.json.
 	/// </summary>
 	[JsonPropertyName("game_mode")]
-	public int GameMode { get; init; }
+	public GameMode GameMode { get; init; }
 
 	/// <summary>
 	/// Gets integer corresponding to lobby type of match.
 	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/lobby_type.json.
 	/// </summary>
 	[JsonPropertyName("lobby_type")]
-	public int LobbyType { get; init; }
+	public LobbyType LobbyType { get; init; }
 
 	/// <summary>
 	/// Gets the ID value of the hero played.
@@ -132,7 +132,7 @@ public class PlayerRecentMatch
 	/// Gets lane role
 	/// </summary>
 	[JsonPropertyName("lane_role")]
-	public int LaneRole { get; init; }
+	public LaneRole? LaneRole { get; init; }
 
 	/// <summary>
 	/// Gets boolean describing whether or not the player roamed

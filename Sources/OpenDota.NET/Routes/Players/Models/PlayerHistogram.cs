@@ -3,6 +3,7 @@
 /// <summary>
 /// Represents player histogram.
 /// </summary>
+[UsedImplicitly]
 public class PlayerHistogram
 {
 	/// <summary>

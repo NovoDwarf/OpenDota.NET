@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Heroes.Models;
+namespace OpenDotaDotNet.Routes.Heroes.Models;
 
 /// <summary>
 /// Contains information about a hero match.
 /// </summary>
+[PublicAPI]
 public class HeroMatch
 {
 	/// <summary>

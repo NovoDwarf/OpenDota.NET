@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Players.Models;
+namespace OpenDotaDotNet.Routes.Players.Models;
 
 /// <summary>
 /// Represents player wins and losses.
 /// </summary>
+[PublicAPI]
 public class PlayerWinLoss
 {
 	/// <summary>

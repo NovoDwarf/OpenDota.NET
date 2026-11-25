@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Heroes.Models;
+namespace OpenDotaDotNet.Routes.Heroes.Models;
 
 /// <summary>
 /// Represents a hero.
 /// </summary>
+[PublicAPI]
 public class Hero
 {
 	/// <summary>

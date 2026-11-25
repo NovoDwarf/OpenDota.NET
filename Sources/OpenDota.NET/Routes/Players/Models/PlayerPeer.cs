@@ -3,6 +3,7 @@
 /// <summary>
 /// Represents player peer.
 /// </summary>
+[UsedImplicitly]
 public class PlayerPeer
 {
 	/// <summary>

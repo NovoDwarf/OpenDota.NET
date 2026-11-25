@@ -1,5 +1,7 @@
-﻿namespace OpenDotaDotNet.Routes.Players.Models;
+namespace OpenDotaDotNet.Routes.Players.Models;
 
+/// <summary>A player profile and rank.</summary>
+[UsedImplicitly]
 public class Player
 {
 	/// <summary>

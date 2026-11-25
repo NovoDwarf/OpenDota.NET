@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Heroes.Models;
+namespace OpenDotaDotNet.Routes.Heroes.Models;
 
 /// <summary>
 /// Represents a hero duration.
 /// </summary>
+[PublicAPI]
 public class HeroDuration
 {
 	/// <summary>

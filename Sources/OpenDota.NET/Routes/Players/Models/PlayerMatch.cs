@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Players.Models;
+namespace OpenDotaDotNet.Routes.Players.Models;
 
 /// <summary>
 /// Represents a player match.
 /// </summary>
+[UsedImplicitly]
 public class PlayerMatch
 {
 	/// <summary>
@@ -34,14 +35,14 @@ public class PlayerMatch
 	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/game_mode.json.
 	/// </summary>
 	[JsonPropertyName("game_mode")]
-	public int GameMode { get; init; }
+	public GameMode GameMode { get; init; }
 
 	/// <summary>
 	/// Gets an integer corresponding to lobby type of match.
 	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/lobby_type.json.
 	/// </summary>
 	[JsonPropertyName("lobby_type")]
-	public int LobbyType { get; init; }
+	public LobbyType LobbyType { get; init; }
 
 	/// <summary>
 	/// Gets the ID value of the hero played.
@@ -96,6 +97,7 @@ public class PlayerMatch
 	/// </summary>
 	[JsonPropertyName("party_size")]
 	public int PartySize { get; init; }
+	/// <summary>The average rank tier of the match.</summary>
 
 	[JsonPropertyName("average_rank")]
 	public int AverageRank { get; init; }

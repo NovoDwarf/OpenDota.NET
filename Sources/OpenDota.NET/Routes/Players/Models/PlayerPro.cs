@@ -3,6 +3,7 @@
 /// <summary>
 /// Represents a pro player.
 /// </summary>
+[UsedImplicitly]
 public class PlayerPro
 {
 	/// <summary>
@@ -27,37 +28,37 @@ public class PlayerPro
 	/// Gets fantasy role of the player.
 	/// </summary>
 	[JsonPropertyName("fantasy_role")]
-	public long FantasyRole { get; init; }
+	public long? FantasyRole { get; init; }
 
 	/// <summary>
 	/// Gets team ID of the player.
 	/// </summary>
 	[JsonPropertyName("team_id")]
-	public long TeamId { get; init; }
+	public long? TeamId { get; init; }
 
 	/// <summary>
 	/// Gets team name of the player.
 	/// </summary>
 	[JsonPropertyName("team_name")]
-	public string TeamName { get; init; }
+	public string TeamName { get; init; } = string.Empty;
 
 	/// <summary>
 	/// Gets team tag of the player.
 	/// </summary>
 	[JsonPropertyName("team_tag")]
-	public string TeamTag { get; init; }
+	public string TeamTag { get; init; } = string.Empty;
 
 	/// <summary>
 	/// Gets whether the player is locked.
 	/// </summary>
 	[JsonPropertyName("is_locked")]
-	public bool IsLocked { get; init; }
+	public bool? IsLocked { get; init; }
 
 	/// <summary>
 	/// Gets whether the player is pro.
 	/// </summary>
 	[JsonPropertyName("is_pro")]
-	public bool IsPro { get; init; }
+	public bool? IsPro { get; init; }
 
 	/// <summary>
 	/// Gets when the player is locked.
@@ -129,13 +130,13 @@ public class PlayerPro
 	/// Gets location country code of the player.
 	/// </summary>
 	[JsonPropertyName("loccountrycode")]
-	public string LocCountryCode { get; init; }
+	public string LocCountryCode { get; init; } = string.Empty;
 
 	/// <summary>
 	/// Gets last match time of the player.
 	/// </summary>
 	[JsonPropertyName("last_match_time")]
-	public DateTimeOffset LastMatchTime { get; init; }
+	public DateTimeOffset LastMatchTime { get; init; } = DateTimeOffset.MinValue;
 
 	/// <summary>
 	/// Gets whether the player is plus.

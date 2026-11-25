@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Players.Models;
+namespace OpenDotaDotNet.Routes.Players.Models;
 
 /// <summary>
 /// Represents player endpoint parameters.
 /// </summary>
+[UsedImplicitly]
 public class PlayerEndpointParameters
 {
 	/// <summary>
@@ -29,13 +30,13 @@ public class PlayerEndpointParameters
 	/// Gets an integer corresponding to game mode played.
 	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/game_mode.json.
 	/// </summary>
-	public int? GameMode { get; set; }
+	public GameMode? GameMode { get; set; }
 	
 	/// <summary>
 	/// Gets integer corresponding to lobby type of match.
 	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/lobby_type.json.
 	/// </summary>
-	public int? LobbyType { get; set; }
+	public LobbyType? LobbyType { get; set; }
 
 	/// <summary>
 	/// Gets the region ID.
@@ -50,7 +51,7 @@ public class PlayerEndpointParameters
 	/// <summary>
 	/// Gets the lane Role ID.
 	/// </summary>
-	public int? LaneRole { get; set; }
+	public LaneRole? LaneRole { get; set; }
 
 	/// <summary>
 	/// Gets the ID value of the hero played.
@@ -86,17 +87,17 @@ public class PlayerEndpointParameters
 	/// Gets whether the match was significant for aggregation purposes.
 	/// Defaults to 1 (true), set this to 0 to return data for non-standard modes/matches.
 	/// </summary>
-	public int Significant { get; set; }
+	public int? Significant { get; set; }
 
 	/// <summary>
 	/// Gets the minimum number of games played, for filtering hero stats.
 	/// </summary>
-	public int Having { get; set; }
+	public int? Having { get; set; }
 
 	/// <summary>
 	/// Gets the field to return matches sorted by in descending order.
 	/// </summary>
-	public string Sort { get; set; } = string.Empty;
+	public string? Sort { get; set; }
 
 	/// <summary>
 	/// Gets the fields to project (array).

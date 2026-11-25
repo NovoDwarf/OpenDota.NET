@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Players.Models;
+namespace OpenDotaDotNet.Routes.Players.Models;
 
 /// <summary>
 /// Represents a player profile.
 /// </summary>
+[PublicAPI]
 public class Profile
 {
 	/// <summary>
@@ -75,7 +76,7 @@ public class Profile
 	/// Gets the player's location country code.
 	/// </summary>
 	[JsonPropertyName("loccountrycode")]
-	public string LocCountryCode { get; init; }
+	public string LocCountryCode { get; init; } = string.Empty;
 
 	/// <summary>
 	/// Gets whether the player is a contributor.

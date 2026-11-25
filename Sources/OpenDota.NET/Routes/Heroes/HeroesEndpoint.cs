@@ -1,29 +1,55 @@
-﻿namespace OpenDotaDotNet.Routes.Heroes;
+namespace OpenDotaDotNet.Routes.Heroes;
 
 /// <inheritdoc />
-public class HeroesEndpoint(Requester requester) : IHeroesEndpoint
+public class HeroesEndpoint : IHeroesEndpoint
 {
-	/// <inheritdoc />
-	public Task<List<Hero>?> GetHeroesAsync() =>
-		requester.GetResponseAsync<List<Hero>>("heroes");
+	private readonly Requester _requester;
 
 	/// <inheritdoc />
-	public Task<List<HeroMatch>?> GetHeroMatchesAsync(int heroId) =>
-		requester.GetResponseAsync<List<HeroMatch>>($"heroes/{heroId}/matches");
+	public HeroesEndpoint(Requester requester)
+	{
+		_requester = requester;
+	}
 
 	/// <inheritdoc />
-	public Task<List<HeroMatchup>?> GetHeroMatchupsAsync(int heroId) =>
-		requester.GetResponseAsync<List<HeroMatchup>>($"heroes/{heroId}/matchups");
+	public string Endpoint => "heroes";
 
 	/// <inheritdoc />
-	public Task<List<HeroDuration>?> GetHeroDurationsAsync(int heroId) =>
-		requester.GetResponseAsync<List<HeroDuration>>($"heroes/{heroId}/durations");
+	public string Url => new Uri(baseUri: _requester.BaseAddress, relativeUri: Endpoint).AbsoluteUri;
+	
+	/// <inheritdoc />
+	public Task<List<Hero>?> GetHeroesAsync()
+	{
+		return _requester.GetResponseAsync<List<Hero>>(Endpoint);
+	}
 
 	/// <inheritdoc />
-	public Task<List<HeroPlayer>?> GetHeroPlayersAsync(int heroId) =>
-		requester.GetResponseAsync<List<HeroPlayer>>($"heroes/{heroId}/players");
+	public Task<List<HeroMatch>?> GetHeroMatchesAsync(int heroId)
+	{
+		return _requester.GetResponseAsync<List<HeroMatch>>($"{Endpoint}/{heroId}/matches");
+	}
 
 	/// <inheritdoc />
-	public Task<List<HeroItemPopularity>?> GetHeroItemPopularityAsync(int heroId) => 
-		requester.GetResponseAsync<List<HeroItemPopularity>>($"heroes/{heroId}/itemPopularity");
+	public Task<List<HeroMatchup>?> GetHeroMatchupsAsync(int heroId)
+	{
+		return _requester.GetResponseAsync<List<HeroMatchup>>($"{Endpoint}/{heroId}/matchups");
+	}
+
+	/// <inheritdoc />
+	public Task<List<HeroDuration>?> GetHeroDurationsAsync(int heroId)
+	{
+		return _requester.GetResponseAsync<List<HeroDuration>>($"{Endpoint}/{heroId}/durations");
+	}
+
+	/// <inheritdoc />
+	public Task<List<HeroPlayer>?> GetHeroPlayersAsync(int heroId)
+	{
+		return _requester.GetResponseAsync<List<HeroPlayer>>($"{Endpoint}/{heroId}/players");
+	}
+
+	/// <inheritdoc />
+	public Task<HeroItemPopularity?> GetHeroItemPopularityAsync(int heroId)
+	{
+		return _requester.GetResponseAsync<HeroItemPopularity>($"{Endpoint}/{heroId}/itemPopularity");
+	}
 }

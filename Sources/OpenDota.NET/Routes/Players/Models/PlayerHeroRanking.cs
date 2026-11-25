@@ -3,6 +3,7 @@
 /// <summary>
 /// Represents a player's hero ranking
 /// </summary>
+[UsedImplicitly]
 public class PlayerHeroRanking
 {
 	/// <summary>

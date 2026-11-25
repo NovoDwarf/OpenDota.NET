@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.League.Models;
+namespace OpenDotaDotNet.Routes.League.Models;
 
 /// <summary>
 /// Represents a league.
 /// </summary>
+[PublicAPI]
 public class League
 {
 	/// <summary>

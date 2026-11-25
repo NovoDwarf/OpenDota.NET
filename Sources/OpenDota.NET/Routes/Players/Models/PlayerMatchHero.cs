@@ -3,6 +3,7 @@
 /// <summary>
 /// Represents player match hero.
 /// </summary>
+[UsedImplicitly]
 public class PlayerMatchHero
 {
 	/// <summary>

@@ -1,16 +1,26 @@
-﻿namespace OpenDotaDotNet.Routes.Players;
+namespace OpenDotaDotNet.Routes.Players;
 
 /// <summary>
 /// Represents players endpoint.
 /// </summary>
+[PublicAPI]
 public interface IPlayersEndpoint
 {
+	/// <summary>The base path of this endpoint, relative to the API address.</summary>
+	public string Endpoint { get; }
+
+	/// <summary>The absolute URL of the endpoint, without query parameters.</summary>
+	public string Url { get; }
+
+    /// <summary>Gets top players, optionally based on turbo matches.</summary>
+    public Task<List<JsonObject>?> GetTopPlayersAsync(bool turbo = false);
+
 	/// <summary>
 	/// Gets player data.
 	/// </summary>
 	/// <param name="accountId">Steam32 account ID.</param>
 	/// <returns>Player data.</returns>
-	Task<Player?> GetPlayerByIdAsync(long accountId);
+	public Task<Player?> GetPlayerByIdAsync(long accountId);
 
 	/// <summary>
 	/// Gets Win/Loss count.
@@ -18,14 +28,14 @@ public interface IPlayersEndpoint
 	/// <param name="accountId">Steam32 account ID.</param>
 	/// <param name="parameters">Query parameters.</param>
 	/// <returns>Win/Loss count.</returns>
-	Task<PlayerWinLoss?> GetPlayerWinLossByIdAsync(long accountId, PlayerEndpointParameters? parameters = null);
+	public Task<PlayerWinLoss?> GetPlayerWinLossByIdAsync(long accountId, PlayerEndpointParameters? parameters = null);
 
 	/// <summary>
 	/// Gets recent matches played.
 	/// </summary>
 	/// <param name="accountId">Steam32 account ID.</param>
 	/// <returns>Recent matches played.</returns>
-	Task<List<PlayerRecentMatch>?> GetPlayerRecentMatchesAsync(long accountId);
+	public Task<List<PlayerRecentMatch>?> GetPlayerRecentMatchesAsync(long accountId);
 
 	/// <summary>
 	/// Gets matches played.
@@ -33,7 +43,7 @@ public interface IPlayersEndpoint
 	/// <param name="accountId">Steam32 account ID.</param>
 	/// <param name="parameters">Query parameters.</param>
 	/// <returns>Matches played.</returns>
-	Task<List<PlayerMatch>?> GetPlayerMatchesAsync(long accountId, PlayerEndpointParameters? parameters = null);
+	public Task<List<PlayerMatch>?> GetPlayerMatchesAsync(long accountId, PlayerEndpointParameters? parameters = null);
 
 	/// <summary>
 	/// Gets heroes played.
@@ -41,7 +51,7 @@ public interface IPlayersEndpoint
 	/// <param name="accountId">Steam32 account ID.</param>
 	/// <param name="parameters">Query Parameters.</param>
 	/// <returns>Heroes played.</returns>
-	Task<List<PlayerHero>?> GetPlayerHeroesAsync(long accountId, PlayerEndpointParameters? parameters = null);
+	public Task<List<PlayerHero>?> GetPlayerHeroesAsync(long accountId, PlayerEndpointParameters? parameters = null);
 
 	/// <summary>
 	/// Gets players played with.
@@ -49,7 +59,7 @@ public interface IPlayersEndpoint
 	/// <param name="accountId">Steam32 account ID.</param>
 	/// <param name="parameters">Query Parameters.</param>
 	/// <returns>Players played with.</returns>
-	Task<List<PlayerPeer>?> GetPlayerPeersAsync(long accountId, PlayerEndpointParameters? parameters = null);
+	public Task<List<PlayerPeer>?> GetPlayerPeersAsync(long accountId, PlayerEndpointParameters? parameters = null);
 
 	/// <summary>
 	/// Gets pro players played with.
@@ -57,7 +67,7 @@ public interface IPlayersEndpoint
 	/// <param name="accountId">Steam32 account ID.</param>
 	/// <param name="parameters">Query Parameters.</param>
 	/// <returns>Pro players played with.</returns>
-	Task<List<PlayerPro>?> GetPlayerProsAsync(long accountId, PlayerEndpointParameters? parameters = null);
+	public Task<List<PlayerPro>?> GetPlayerProsAsync(long accountId, PlayerEndpointParameters? parameters = null);
 
 	/// <summary>
 	/// Gets totals in stats.
@@ -65,7 +75,7 @@ public interface IPlayersEndpoint
 	/// <param name="accountId">Steam32 account ID.</param>
 	/// <param name="parameters">Query Parameters.</param>
 	/// <returns>Totals in stats.</returns>
-	Task<List<PlayerTotal>?> GetPlayerTotalsAsync(long accountId, PlayerEndpointParameters? parameters = null);
+	public Task<List<PlayerTotal>?> GetPlayerTotalsAsync(long accountId, PlayerEndpointParameters? parameters = null);
 
 	/// <summary>
 	/// Gets counts in categories.
@@ -73,7 +83,7 @@ public interface IPlayersEndpoint
 	/// <param name="accountId">Steam32 account ID.</param>
 	/// <param name="parameters">Query Parameters.</param>
 	/// <returns>Counts in categories.</returns>
-	Task<PlayerCount?> GetPlayerCountsAsync(long accountId, PlayerEndpointParameters? parameters = null);
+	public Task<PlayerCount?> GetPlayerCountsAsync(long accountId, PlayerEndpointParameters? parameters = null);
 
 	/// <summary>
 	/// Gets distribution of matches in a single stat.
@@ -83,7 +93,7 @@ public interface IPlayersEndpoint
 	/// <param name="field">Field to aggregate on.</param>
 	/// <param name="parameters">Query Parameters.</param>
 	/// <returns>Distribution of matches in a single stat.</returns>
-	Task<List<PlayerHistogram>?> GetPlayerHistogramsAsync(long accountId, string field, PlayerEndpointParameters? parameters = null);
+	public Task<List<PlayerHistogram>?> GetPlayerHistogramsAsync(long accountId, string field, PlayerEndpointParameters? parameters = null);
 
 	/// <summary>
 	/// Gets wards placed in matches played.
@@ -91,7 +101,7 @@ public interface IPlayersEndpoint
 	/// <param name="accountId">Steam32 account ID.</param>
 	/// <param name="parameters">Query Parameters.</param>
 	/// <returns>Wards placed in matches played.</returns>
-	Task<PlayerWardMap?> GetPlayerWardMapAsync(long accountId, PlayerEndpointParameters? parameters = null);
+	public Task<PlayerWardMap?> GetPlayerWardMapAsync(long accountId, PlayerEndpointParameters? parameters = null);
 
 	/// <summary>
 	/// Gets words said/read in matches played.
@@ -99,26 +109,26 @@ public interface IPlayersEndpoint
 	/// <param name="accountId">Steam32 account ID.</param>
 	/// <param name="parameters">Query Parameters.</param>
 	/// <returns>Words said/read in matches played.</returns>
-	Task<PlayerWordCloud?> GetPlayerWordCloudAsync(long accountId, PlayerEndpointParameters? parameters = null);
+	public Task<PlayerWordCloud?> GetPlayerWordCloudAsync(long accountId, PlayerEndpointParameters? parameters = null);
 
 	/// <summary>
 	/// Gets player rating history.
 	/// </summary>
 	/// <param name="accountId">Steam32 account ID.</param>
 	/// <returns>Player rating history.</returns>
-	Task<List<PlayerRating>?> GetPlayerRatingsAsync(long accountId);
+	public Task<List<PlayerRating>?> GetPlayerRatingsAsync(long accountId);
 
 	/// <summary>
 	/// Gets player hero rankings.
 	/// </summary>
 	/// <param name="accountId">Steam32 account ID.</param>
 	/// <returns>Player hero rankings.</returns>
-	Task<List<PlayerHeroRanking>?> GetPlayerHeroRankingsAsync(long accountId);
+	public Task<List<PlayerHeroRanking>?> GetPlayerHeroRankingsAsync(long accountId);
 
 	/// <summary>
 	/// Gets refresh player match history.
 	/// </summary>
 	/// <param name="accountId"></param>
 	/// <returns>Refresh player match history.</returns>
-	Task<bool> RefreshPlayerMatchHistoryAsync(long accountId);
+	public Task<bool> RefreshPlayerMatchHistoryAsync(long accountId);
 }
