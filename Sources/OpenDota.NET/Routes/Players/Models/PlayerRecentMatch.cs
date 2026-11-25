@@ -1,4 +1,6 @@
-﻿namespace OpenDota.NET.Routes.Players.Models;
+using OpenDota.NET.Enums;
+
+namespace OpenDota.NET.Routes.Players.Models;
 
 /// <summary>
 /// Represents a player's recent match
@@ -126,7 +128,7 @@ public class PlayerRecentMatch
 	/// Gets integer corresponding to which lane the player laned in for the match
 	/// </summary>
 	[JsonPropertyName("lane")]
-	public int Lane { get; init; }
+	public int? Lane { get; init; }
 
 	/// <summary>
 	/// Gets lane role
@@ -156,7 +158,7 @@ public class PlayerRecentMatch
 	/// Gets size of the players party. If not in a party, will return 1.
 	/// </summary>
 	[JsonPropertyName("party_size")]
-	public int PartySize { get; init; }
+	public int? PartySize { get; init; }
 
 	/// <summary>
 	/// Gets the average rank of the player

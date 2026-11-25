@@ -34,13 +34,13 @@ public class LiveGamePlayer
 	/// Gets a fantasy role code
 	/// </summary>
 	[JsonPropertyName("fantasy_role")]
-	public long FantasyRole { get; init; }
+	public long? FantasyRole { get; init; }
 
 	/// <summary>
 	/// Gets a team ID
 	/// </summary>
 	[JsonPropertyName("team_id")]
-	public long TeamId { get; init; }
+	public long? TeamId { get; init; }
 
 	/// <summary>
 	/// Gets a team name

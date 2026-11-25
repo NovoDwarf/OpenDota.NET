@@ -62,7 +62,7 @@ public class ProPlayer
 	/// Gets amount of dollars the player has donated to OpenDota.
 	/// </summary>
 	[JsonPropertyName("cheese")]
-	public int Cheese { get; init; }
+	public int? Cheese { get; init; }
 
 	/// <summary>
 	/// Gets whether the refresh of player' match history failed.
@@ -104,13 +104,13 @@ public class ProPlayer
 	/// Gets player's ingame role (core: 1 or support: 2).
 	/// </summary>
 	[JsonPropertyName("fantasy_role")]
-	public int FantasyRole { get; init; }
+	public int? FantasyRole { get; init; }
 
 	/// <summary>
 	/// Gets player's team identifier.
 	/// </summary>
 	[JsonPropertyName("team_id")]
-	public long TeamId { get; init; }
+	public long? TeamId { get; init; }
 
 	/// <summary>
 	/// Gets player's team name, e.g. 'Evil Geniuses'.

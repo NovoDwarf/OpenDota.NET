@@ -28,5 +28,5 @@ public class Scenarios
 	/// Gets the team scenarios query parameters.
 	/// </summary>
 	[JsonPropertyName("teamScenariosQueryParams")]
-	public List<int> TeamScenariosQueryParams { get; init; } = [];
+	public List<string> TeamScenariosQueryParams { get; init; } = [];
 }

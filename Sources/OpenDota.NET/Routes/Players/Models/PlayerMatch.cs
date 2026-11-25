@@ -1,3 +1,5 @@
+using OpenDota.NET.Enums;
+
 namespace OpenDota.NET.Routes.Players.Models;
 
 /// <summary>
@@ -60,7 +62,7 @@ public class PlayerMatch
 	/// Gets the version.
 	/// </summary>
 	[JsonPropertyName("version")]
-	public int Version { get; init; }
+	public int? Version { get; init; }
 
 	/// <summary>
 	/// Gets total kills the player had at the end of the game.
@@ -96,17 +98,17 @@ public class PlayerMatch
 	/// Gets size of the player's party.
 	/// </summary>
 	[JsonPropertyName("party_size")]
-	public int PartySize { get; init; }
+	public int? PartySize { get; init; }
 	/// <summary>The average rank tier of the match.</summary>
 
 	[JsonPropertyName("average_rank")]
-	public int AverageRank { get; init; }
+	public int? AverageRank { get; init; }
 
 	/// <summary>
 	/// Gets the variant of the hero played. 1-indexed facet, see https://github.com/odota/dotaconstants/blob/master/build/hero_abilities.json
 	/// </summary>
 	[JsonPropertyName("hero_variant")]
-	public int HeroVariant { get; init; }
+	public int? HeroVariant { get; init; }
 
 	/// <summary>
 	/// Gets the heroes.

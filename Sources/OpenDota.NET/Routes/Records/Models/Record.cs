@@ -20,7 +20,7 @@ public class Record
 	/// Gets the ID value of the hero played.
 	/// </summary>
 	[JsonPropertyName("hero_id")]
-	public int HeroId { get; init; }
+	public int? HeroId { get; init; }
 
 	/// <summary>
 	/// Gets the score of the player.

@@ -1,4 +1,4 @@
-﻿namespace OpenDota.NET.Routes.HeroStats.Enums;
+namespace OpenDota.NET.Routes.HeroStats.Enums;
 
 /// <summary>
 /// The attack type of the hero.
@@ -13,10 +13,10 @@ public enum HeroAttackType
 	/// <summary>
 	/// The melee attack type.
 	/// </summary>
-	[JsonPropertyName("Melee")] Melee = 1,
+	[JsonStringEnumMemberName("Melee")] Melee = 1,
 
 	/// <summary>
 	/// The ranged attack type.
 	/// </summary>
-	[JsonPropertyName("Ranged")] Ranged = 2,
+	[JsonStringEnumMemberName("Ranged")] Ranged = 2,
 }

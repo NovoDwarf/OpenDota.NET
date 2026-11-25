@@ -1,3 +1,8 @@
+using OpenDota.NET.Converters;
+using OpenDota.NET.Routes.HeroStats.Enums;
+using OpenDota.NET.Routes.Leagues.Enums;
+using OpenDota.NET.Routes.Scenarios.Enums;
+
 namespace OpenDota.NET;
 
 /// <summary>
@@ -8,7 +13,7 @@ public class OpenDotaSettings
 	/// <summary>
 	/// The OpenDota API key. If you have API key, set this property.
 	/// </summary>
-	public string? ApiKey { get; init; }
+	public string? ApiKey { get; set; }
 
 	/// <summary>
 	/// The proxy. If you want to use own proxy, set this property.
@@ -22,17 +27,12 @@ public class OpenDotaSettings
 	{
 		Converters =
 		{
-			new StringToBooleanNull(), new StringToDoubleNull(),
-			new StringToIntNull(),
-			new StringToLongNull(),
-			new StringToDouble(),
-			new StringToInt(),
-			new StringToLong(),
-			new StringToEnumList<HeroRole>(),
-			new StringToEnum<HeroPrimaryAttribute>(),
-			new StringToEnum<HeroAttackType>(),
-			new StringToEnum<Tier>(),
-			new StringToEnum<Scenario>()
+			new StringToBooleanNull(),
+			new JsonStringEnumConverter<HeroRole>(),
+			new JsonStringEnumConverter<HeroPrimaryAttribute>(),
+			new JsonStringEnumConverter<HeroAttackType>(),
+			new JsonStringEnumConverter<Tier>(),
+			new JsonStringEnumConverter<Scenario>()
 		},
 		IncludeFields = true,
 	};

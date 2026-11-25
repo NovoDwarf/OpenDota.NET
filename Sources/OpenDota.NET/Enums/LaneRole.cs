@@ -1,3 +1,5 @@
+using OpenDota.NET.Converters;
+
 namespace OpenDota.NET.Enums;
 
 /// <summary>

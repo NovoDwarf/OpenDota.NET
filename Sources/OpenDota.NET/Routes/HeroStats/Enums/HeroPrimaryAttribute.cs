@@ -1,4 +1,4 @@
-﻿namespace OpenDota.NET.Routes.HeroStats.Enums;
+namespace OpenDota.NET.Routes.HeroStats.Enums;
 
 /// <summary>
 /// The primary attribute of the hero.
@@ -13,20 +13,20 @@ public enum HeroPrimaryAttribute
 	/// <summary>
 	/// Agility attribute.
 	/// </summary>
-	[JsonPropertyName("agi")] Agility = 1,
+	[JsonStringEnumMemberName("agi")] Agility = 1,
 
 	/// <summary>
 	/// Intelligence attribute.
 	/// </summary>
-	[JsonPropertyName("int")] Intelligence = 2,
+	[JsonStringEnumMemberName("int")] Intelligence = 2,
 
 	/// <summary>
 	/// Strength attribute.
 	/// </summary>
-	[JsonPropertyName("str")] Strength = 3,
+	[JsonStringEnumMemberName("str")] Strength = 3,
 
 	/// <summary>
 	/// Universal attribute.
 	/// </summary>
-	[JsonPropertyName("all")] All = 4,
+	[JsonStringEnumMemberName("all")] All = 4,
 }
