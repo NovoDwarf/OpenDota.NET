@@ -1,14 +1,20 @@
-﻿namespace OpenDota.NET.Tests.EndpointsTests;
+﻿namespace OpenDota.NET.Tests.Endpoints;
 
-public class ProMatchesEndpointTests(ITestOutputHelper testOutputHelper)
+public class ProMatchesEndpointTests
 {
 	private readonly OpenDotaApi _openDotaApi = new();
+	private readonly ITestOutputHelper _testOutputHelper;
+
+	public ProMatchesEndpointTests(ITestOutputHelper testOutputHelper)
+	{
+		_testOutputHelper = testOutputHelper;
+	}
 
 	[Fact]
 	public async Task TestGetProMatches()
 	{
 		var result = await _openDotaApi.ProMatches.GetProMatchesAsync();
-		testOutputHelper.WriteLine(result.ToJsonString());
+		_testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null)
 		{

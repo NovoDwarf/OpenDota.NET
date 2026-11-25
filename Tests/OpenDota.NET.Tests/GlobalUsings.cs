@@ -23,4 +23,3 @@ global using OpenDotaDotNet.Routes.Schema.Models;
 global using OpenDotaDotNet.Routes.Search.Models;
 global using OpenDotaDotNet.Routes.Teams.Models;
 global using Xunit;
-global using Xunit.Abstractions;

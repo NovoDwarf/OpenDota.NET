@@ -1,14 +1,20 @@
-﻿namespace OpenDota.NET.Tests.EndpointsTests;
+﻿namespace OpenDota.NET.Tests.Endpoints;
 
-public class LeaguesEndpointTests(ITestOutputHelper testOutputHelper)
+public class LeaguesEndpointTests
 {
 	private readonly OpenDotaApi _openDotaApi = new();
+	private readonly ITestOutputHelper _testOutputHelper;
+
+	public LeaguesEndpointTests(ITestOutputHelper testOutputHelper)
+	{
+		_testOutputHelper = testOutputHelper;
+	}
 
 	[Fact]
 	public async Task TestGetLeagues()
 	{
 		var result = await _openDotaApi.League.GetLeaguesAsync();
-		testOutputHelper.WriteLine(result.ToJsonString());
+		_testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null)
 		{

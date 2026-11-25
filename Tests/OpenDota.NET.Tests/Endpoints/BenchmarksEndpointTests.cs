@@ -1,8 +1,14 @@
-﻿namespace OpenDota.NET.Tests.EndpointsTests;
+﻿namespace OpenDota.NET.Tests.Endpoints;
 
-public class BenchmarksEndpointTests(ITestOutputHelper testOutputHelper)
+public class BenchmarksEndpointTests
 {
 	private readonly OpenDotaApi _openDotaApi = new();
+	private readonly ITestOutputHelper _testOutputHelper;
+
+	public BenchmarksEndpointTests(ITestOutputHelper testOutputHelper)
+	{
+		_testOutputHelper = testOutputHelper;
+	}
 
 	[Fact]
 	public async Task TestGetHeroBenchmark()
@@ -11,7 +17,7 @@ public class BenchmarksEndpointTests(ITestOutputHelper testOutputHelper)
 
 		var result = await _openDotaApi.Benchmarks.GetHeroBenchmarkAsync(heroId);
 
-		testOutputHelper.WriteLine(result.ToJsonString());
+		_testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null)
 		{

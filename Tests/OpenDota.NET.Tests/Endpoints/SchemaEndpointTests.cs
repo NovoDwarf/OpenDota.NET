@@ -1,14 +1,20 @@
-﻿namespace OpenDota.NET.Tests.EndpointsTests;
+﻿namespace OpenDota.NET.Tests.Endpoints;
 
-public class SchemaEndpointTests(ITestOutputHelper testOutputHelper)
+public class SchemaEndpointTests
 {
 	private readonly OpenDotaApi _openDotaApi = new();
+	private readonly ITestOutputHelper _testOutputHelper;
+
+	public SchemaEndpointTests(ITestOutputHelper testOutputHelper)
+	{
+		_testOutputHelper = testOutputHelper;
+	}
 
 	[Fact]
 	public async Task TestGetDatabaseSchema()
 	{
 		var result = await _openDotaApi.Schema.GetDatabaseSchemaAsync();
-		testOutputHelper.WriteLine(result.ToJsonString());
+		_testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null) 
 			Assert.Contains(result, x => x.TableName == "api_key_usage");

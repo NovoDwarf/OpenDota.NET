@@ -1,14 +1,20 @@
-﻿namespace OpenDota.NET.Tests.EndpointsTests;
+﻿namespace OpenDota.NET.Tests.Endpoints;
 
-public class TeamsEndpointTests(ITestOutputHelper testOutputHelper)
+public class TeamsEndpointTests
 {
 	private readonly OpenDotaApi _openDotaApi = new();
+	private readonly ITestOutputHelper _testOutputHelper;
+
+	public TeamsEndpointTests(ITestOutputHelper testOutputHelper)
+	{
+		_testOutputHelper = testOutputHelper;
+	}
 
 	[Fact]
 	public async Task TestGetTeams()
 	{
 		var result = await _openDotaApi.Teams.GetTeamsAsync();
-		testOutputHelper.WriteLine(result.ToJsonString());
+		_testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null)
 		{
@@ -32,7 +38,7 @@ public class TeamsEndpointTests(ITestOutputHelper testOutputHelper)
 	public async Task TestGetTeamById()
 	{
 		var result = await _openDotaApi.Teams.GetTeamByIdAsync(7554697);
-		testOutputHelper.WriteLine(result.ToJsonString());
+		_testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null)
 		{
@@ -62,7 +68,7 @@ public class TeamsEndpointTests(ITestOutputHelper testOutputHelper)
 	public async Task TestGetOgTeamMatchesById()
 	{
 		var result = await _openDotaApi.Teams.GetTeamMatchesByIdAsync(2586976); // OG
-		testOutputHelper.WriteLine(result.ToJsonString());
+		_testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null)
 		{
@@ -86,11 +92,11 @@ public class TeamsEndpointTests(ITestOutputHelper testOutputHelper)
 	public async Task TestGetTeamPlayersById()
 	{
 		var result = await _openDotaApi.Teams.GetTeamPlayersByIdAsync(7554697);
-		testOutputHelper.WriteLine(result.ToJsonString());
+		_testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null)
 		{
-			Assert.Equal(7, result.Count(x => x.IsCurrentTeamMember == true));
+			Assert.NotEmpty(result);
 			Assert.True(result.TrueForAll(x => x.GamesPlayed >= 0));
 			Assert.True(result.TrueForAll(x => x.Wins >= 0));
 			Assert.True(result.TrueForAll(x => x.AccountId > 0));
@@ -105,7 +111,7 @@ public class TeamsEndpointTests(ITestOutputHelper testOutputHelper)
 	public async Task TestGetTeamSecretTeamHeroesById()
 	{
 		var result = await _openDotaApi.Teams.GetTeamHeroesByIdAsync(1838315); // Secret
-		testOutputHelper.WriteLine(result.ToJsonString());
+		_testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null)
 		{

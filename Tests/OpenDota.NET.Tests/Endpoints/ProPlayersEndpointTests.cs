@@ -1,21 +1,27 @@
-﻿namespace OpenDota.NET.Tests.EndpointsTests;
+﻿namespace OpenDota.NET.Tests.Endpoints;
 
-public class ProPlayersEndpointTests(ITestOutputHelper testOutputHelper)
+public class ProPlayersEndpointTests
 {
 	private readonly OpenDotaApi _openDotaApi = new();
+	private readonly ITestOutputHelper _testOutputHelper;
+
+	public ProPlayersEndpointTests(ITestOutputHelper testOutputHelper)
+	{
+		_testOutputHelper = testOutputHelper;
+	}
 
 	[Fact]
 	public async Task TestGetProPlayers()
 	{
 		var result = await _openDotaApi.ProPlayers.GetProPlayersAsync();
-		testOutputHelper.WriteLine(result.ToJsonString());
+		_testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null)
 		{
 			Assert.True(result.TrueForAll(x => x.AccountId > 0));
-			Assert.True(result.Any(x => !string.IsNullOrWhiteSpace(x.Name)));
-			Assert.True(result.Any(x => !string.IsNullOrWhiteSpace(x.SteamId)));
-			Assert.True(result.Any(x => !string.IsNullOrWhiteSpace(x.PersonaName)));
+			Assert.Contains(result, x => !string.IsNullOrWhiteSpace(x.Name));
+			Assert.Contains(result, x => !string.IsNullOrWhiteSpace(x.SteamId));
+			Assert.Contains(result, x => !string.IsNullOrWhiteSpace(x.PersonaName));
 		}
 	}
 }

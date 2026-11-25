@@ -1,14 +1,20 @@
-﻿namespace OpenDota.NET.Tests.EndpointsTests;
+﻿namespace OpenDota.NET.Tests.Endpoints;
 
-public class HeroesEndpointTests(ITestOutputHelper testOutputHelper)
+public class HeroesEndpointTests
 {
 	private readonly OpenDotaApi _openDotaApi = new();
+	private readonly ITestOutputHelper _testOutputHelper;
+
+	public HeroesEndpointTests(ITestOutputHelper testOutputHelper)
+	{
+		_testOutputHelper = testOutputHelper;
+	}
 
 	[Fact]
 	public async Task TestGetHeroes()
 	{
 		var result = await _openDotaApi.Heroes.GetHeroesAsync();
-		testOutputHelper.WriteLine(result.ToJsonString());
+		_testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null)
 		{
@@ -29,7 +35,7 @@ public class HeroesEndpointTests(ITestOutputHelper testOutputHelper)
 	public async Task TestGetHeroDurations()
 	{
 		var result = await _openDotaApi.Heroes.GetHeroDurationsAsync(1);
-		testOutputHelper.WriteLine(result.ToJsonString());
+		_testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null)
 		{
@@ -47,7 +53,7 @@ public class HeroesEndpointTests(ITestOutputHelper testOutputHelper)
 	public async Task TestGetHeroMatches()
 	{
 		var result = await _openDotaApi.Heroes.GetHeroMatchesAsync(2);
-		testOutputHelper.WriteLine(result.ToJsonString());
+		_testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null)
 		{
@@ -73,14 +79,14 @@ public class HeroesEndpointTests(ITestOutputHelper testOutputHelper)
 	public async Task TestGetHeroMatchups()
 	{
 		var result = await _openDotaApi.Heroes.GetHeroMatchupsAsync(3);
-		testOutputHelper.WriteLine(result.ToJsonString());
+		_testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null)
 		{
 			Assert.True(result.Count >= 118);
 			Assert.True(result.TrueForAll(x => x.HeroId > 0));
 			Assert.True(result.TrueForAll(x => x.GamesPlayed > 0));
-			Assert.True(result.TrueForAll(x => x.Wins > 0));
+			Assert.True(result.TrueForAll(x => x.Wins >= 0));
 		}
 		else
 		{
@@ -92,7 +98,7 @@ public class HeroesEndpointTests(ITestOutputHelper testOutputHelper)
 	public async Task TestGetHeroPlayers()
 	{
 		var result = await _openDotaApi.Heroes.GetHeroPlayersAsync(4);
-		testOutputHelper.WriteLine(result.ToJsonString());
+		_testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null)
 		{

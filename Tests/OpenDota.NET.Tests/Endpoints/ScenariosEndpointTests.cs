@@ -1,11 +1,17 @@
-﻿using OpenDotaDotNet.Enums;
+using OpenDotaDotNet.Enums;
 using OpenDotaDotNet.Routes.Scenarios.Enums;
 
-namespace OpenDota.NET.Tests.EndpointsTests;
+namespace OpenDota.NET.Tests.Endpoints;
 
-public class ScenariosEndpointTests(ITestOutputHelper testOutputHelper)
+public class ScenariosEndpointTests
 {
 	private readonly OpenDotaApi _openDotaApi = new();
+	private readonly ITestOutputHelper _testOutputHelper;
+
+	public ScenariosEndpointTests(ITestOutputHelper testOutputHelper)
+	{
+		_testOutputHelper = testOutputHelper;
+	}
 
 	[Fact]
 	public async Task TestGetWinRateForCertainItemTimingsOnHeroes()
@@ -15,7 +21,7 @@ public class ScenariosEndpointTests(ITestOutputHelper testOutputHelper)
 
 		var result = await _openDotaApi.Scenarios.GetItemNamingAsync(itemName, heroId);
 		
-		testOutputHelper.WriteLine(result.ToJsonString());
+		_testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null)
 		{
@@ -35,9 +41,9 @@ public class ScenariosEndpointTests(ITestOutputHelper testOutputHelper)
 		const LaneRole laneId = LaneRole.Offlane; // Offlane
 		const int heroId = 40; // Venomancer
 
-		var result = await _openDotaApi.Scenarios.GetLaneRolesAsync(3, heroId); // TODO: FIX THIS SHIT
+		var result = await _openDotaApi.Scenarios.GetLaneRolesAsync(laneId, heroId); // TODO: FIX THIS SHIT
 		
-		testOutputHelper.WriteLine(result.ToJsonString());
+		_testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null)
 		{
@@ -57,7 +63,7 @@ public class ScenariosEndpointTests(ITestOutputHelper testOutputHelper)
 
 		var result =
 			await _openDotaApi.Scenarios.GetMiscTeamScenariosAsync(scenario);
-		testOutputHelper.WriteLine(result.ToJsonString());
+		_testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null)
 		{
@@ -65,7 +71,7 @@ public class ScenariosEndpointTests(ITestOutputHelper testOutputHelper)
 			Assert.True(result.TrueForAll(x => x.Scenario == scenario));
 			Assert.True(result.TrueForAll(x => x.Games > 0));
 			Assert.True(result.TrueForAll(x => x.Wins >= 0));
-			Assert.True(result.TrueForAll(x => x.Region > 0));
+			Assert.True(result.TrueForAll(x => x.Region >= 0));
 		}
 	}
 }

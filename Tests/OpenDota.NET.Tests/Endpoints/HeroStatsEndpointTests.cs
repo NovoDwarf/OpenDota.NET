@@ -1,15 +1,21 @@
-﻿namespace OpenDota.NET.Tests.EndpointsTests;
+﻿namespace OpenDota.NET.Tests.Endpoints;
 
-public class HeroStatsEndpointTests(ITestOutputHelper testOutputHelper)
+public class HeroStatsEndpointTests
 {
 	private readonly OpenDotaApi _openDotaApi = new();
+	private readonly ITestOutputHelper _testOutputHelper;
+
+	public HeroStatsEndpointTests(ITestOutputHelper testOutputHelper)
+	{
+		_testOutputHelper = testOutputHelper;
+	}
 
 	[Fact]
 	public async Task TestGetHeroStat()
 	{
 		var result = await _openDotaApi.HeroStats.GetHeroStatsAsync();
 		
-		testOutputHelper.WriteLine(result.ToJsonString());
+		_testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null)
 		{
@@ -70,7 +76,7 @@ public class HeroStatsEndpointTests(ITestOutputHelper testOutputHelper)
 	{
 		var result = await _openDotaApi.HeroStats.GetHeroStatsAsync();
 
-		testOutputHelper.WriteLine(result.ToJsonString());
+		_testOutputHelper.WriteLine(result.ToJsonString());
 
 		Assert.True(result?.TrueForAll(x => x != null));
 	}
