@@ -1,23 +1,21 @@
 # Changelog
 
-## 5.0.0 (unreleased) — Breaking Changes
-
-This release is planned as the next major release after 4.0.0. Release versions are taken from tags such as `v5.0.0`; this entry does not publish a release or create a tag.
+## 5.0.0 (unreleased)
 
 ### Breaking changes
 
-- Game mode, lobby type, and lane role fields and filters use numeric enum types. Cast unknown numeric values when needed; numeric JSON values are preserved.
-
-- `OpenDotaSettings.ApiKey` and `Proxy` are now configurable instance properties; keys are sent with GET and POST requests.
-- `GetHeroItemPopularityAsync` returns a single `HeroItemPopularity` instead of a list.
-- `GetPublicMatchesAsync` uses `minRank` and `maxRank` instead of MMR ordering parameters.
-- `GetConstantsAsync(Constant)` returns `JsonNode`, which may contain an object or an array.
-- `PublicMatch.RadiantWin`, `PlayerPro.IsLocked`, `IsPro`, `TeamId`, and `FantasyRole` are nullable.
-- `PlayerEndpointParameters.Significant`, `Having`, and `Sort` are optional and omitted unless explicitly set.
-- Query arguments are encoded by the client; pass raw SQL to Explorer instead of percent-encoded SQL.
+- The root namespace changed from `OpenDotaDotNet` to `OpenDota.NET`. Update imports for the client, models, endpoints, enums and converters. The league namespace also changed from `Routes.League` to `Routes.Leagues`.
+- `Match.League` uses the shared `Routes.Leagues.Models.League` type. Its ticket, banner and tier may be null.
+- `GetParsedMatchesAsync` returns a list and uses the optional `lessThanMatchId` cursor.
+- Game mode, lobby type and lane role fields and filters use numeric enums. Unknown numeric values are preserved.
+- `OpenDotaSettings.ApiKey` and `Proxy` are instance properties. Query arguments are encoded by the client; pass raw SQL to Explorer.
+- `GetHeroItemPopularityAsync` returns a single object. `GetPublicMatchesAsync` uses `minRank` and `maxRank`. `GetConstantsAsync(Constant)` returns `JsonNode`.
+- Several fields are nullable where the API returns null, including player match, live player, professional player and record fields. `TeamScenariosQueryParams` contains strings.
+- Optional player filters are omitted unless explicitly set.
+- Removed the public numeric and string-enum converters in favor of `System.Text.Json`. Invalid numeric values now throw `JsonException` instead of returning sentinel values or null. String enum members use their API names when serialized.
 
 ### Added and corrected
 
-- Added top players and league detail, matches, match IDs, and teams endpoints.
-- `OpenDotaApi` implements `IDisposable`. Search accepts both `sml` and the documented `similarity` response field; health usage exposes `Limit`.
-- Added offline request and deserialization contract tests.
+- Added top-player and league endpoints, endpoint URLs and a Microsoft dependency injection package.
+- API keys work for GET and POST. Parse request responses use the configured JSON options.
+- Added contract tests and split integration and dependency-injection tests into separate projects.
