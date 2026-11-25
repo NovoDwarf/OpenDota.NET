@@ -1,4 +1,4 @@
-﻿namespace OpenDota.NET.Tests.Endpoints;
+namespace OpenDota.NET.IntegrationTests.Endpoints;
 
 public class DistributionsEndpointTests
 {
@@ -16,9 +16,7 @@ public class DistributionsEndpointTests
 		var result = await _openDotaApi.Distributions.GetDistributionsAsync();
 		_testOutputHelper.WriteLine(result.ToJsonString());
 
-		if (result != null)
-		{
-			Assert.NotNull(result);
-		}
+		Assert.NotNull(result);
+		Assert.NotNull(result);
 	}
 }

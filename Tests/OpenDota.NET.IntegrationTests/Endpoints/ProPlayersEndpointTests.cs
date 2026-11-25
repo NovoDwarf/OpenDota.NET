@@ -1,4 +1,4 @@
-﻿namespace OpenDota.NET.Tests.Endpoints;
+namespace OpenDota.NET.IntegrationTests.Endpoints;
 
 public class ProPlayersEndpointTests
 {
@@ -16,12 +16,10 @@ public class ProPlayersEndpointTests
 		var result = await _openDotaApi.ProPlayers.GetProPlayersAsync();
 		_testOutputHelper.WriteLine(result.ToJsonString());
 
-		if (result != null)
-		{
-			Assert.True(result.TrueForAll(x => x.AccountId > 0));
-			Assert.Contains(result, x => !string.IsNullOrWhiteSpace(x.Name));
-			Assert.Contains(result, x => !string.IsNullOrWhiteSpace(x.SteamId));
-			Assert.Contains(result, x => !string.IsNullOrWhiteSpace(x.PersonaName));
-		}
+		Assert.NotNull(result);
+		Assert.True(result.TrueForAll(x => x.AccountId > 0));
+		Assert.Contains(result, x => !string.IsNullOrWhiteSpace(x.Name));
+		Assert.Contains(result, x => !string.IsNullOrWhiteSpace(x.SteamId));
+		Assert.Contains(result, x => !string.IsNullOrWhiteSpace(x.PersonaName));
 	}
 }

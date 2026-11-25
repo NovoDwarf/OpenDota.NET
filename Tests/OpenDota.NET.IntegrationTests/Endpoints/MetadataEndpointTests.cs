@@ -1,4 +1,4 @@
-﻿namespace OpenDota.NET.Tests.Endpoints;
+namespace OpenDota.NET.IntegrationTests.Endpoints;
 
 public class MetadataEndpointTests
 {
@@ -16,16 +16,10 @@ public class MetadataEndpointTests
 		var result = await _openDotaApi.Metadata.GetMetadataAsync();
 		_testOutputHelper.WriteLine(result.ToJsonString());
 
-		if (result != null)
-		{
-			Assert.True(result.Scenarios.ItemCost > 0);
-			Assert.True(result.Scenarios.GameDurationBucket.Count > 0);
-			Assert.True(result.Scenarios.TeamScenariosQueryParams.Count > 0);
-			Assert.True(result.Scenarios.Timings.Count > 0);
-		}
-		else
-		{
-			Assert.Fail();
-		}
+		Assert.NotNull(result);
+		Assert.True(result.Scenarios.ItemCost > 0);
+		Assert.True(result.Scenarios.GameDurationBucket.Count > 0);
+		Assert.True(result.Scenarios.TeamScenariosQueryParams.Count > 0);
+		Assert.True(result.Scenarios.Timings.Count > 0);
 	}
 }

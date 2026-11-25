@@ -1,4 +1,4 @@
-﻿namespace OpenDota.NET.Tests.Endpoints;
+namespace OpenDota.NET.IntegrationTests.Endpoints;
 
 public class MatchesEndpointTests
 {

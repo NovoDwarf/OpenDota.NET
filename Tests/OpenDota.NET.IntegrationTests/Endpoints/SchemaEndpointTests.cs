@@ -1,4 +1,4 @@
-﻿namespace OpenDota.NET.Tests.Endpoints;
+namespace OpenDota.NET.IntegrationTests.Endpoints;
 
 public class SchemaEndpointTests
 {
@@ -16,7 +16,7 @@ public class SchemaEndpointTests
 		var result = await _openDotaApi.Schema.GetDatabaseSchemaAsync();
 		_testOutputHelper.WriteLine(result.ToJsonString());
 
-		if (result != null)
-			Assert.Contains(result, x => x.TableName == "api_key_usage");
+		Assert.NotNull(result);
+		Assert.Contains(result, x => x.TableName == "api_key_usage");
 	}
 }

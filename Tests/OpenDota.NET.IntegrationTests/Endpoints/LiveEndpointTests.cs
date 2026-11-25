@@ -1,4 +1,4 @@
-﻿namespace OpenDota.NET.Tests.Endpoints;
+namespace OpenDota.NET.IntegrationTests.Endpoints;
 
 public class LiveEndpointTests
 {
@@ -16,11 +16,9 @@ public class LiveEndpointTests
 		var result = await _openDotaApi.Live.GetTopLiveGamesAsync();
 		_testOutputHelper.WriteLine(result.ToJsonString());
 
-		if (result != null)
-		{
-			Assert.Equal(100, result.Count);
-			Assert.True(result.TrueForAll(x => !string.IsNullOrWhiteSpace(x.LobbyId)));
-			Assert.True(result.TrueForAll(x => x.Players.Count >= 0));
-		}
+		Assert.NotNull(result);
+		Assert.Equal(100, result.Count);
+		Assert.True(result.TrueForAll(x => !string.IsNullOrWhiteSpace(x.LobbyId)));
+		Assert.True(result.TrueForAll(x => x.Players.Count >= 0));
 	}
 }

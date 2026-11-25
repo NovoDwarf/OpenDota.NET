@@ -1,4 +1,4 @@
-﻿namespace OpenDota.NET.Tests.Endpoints;
+namespace OpenDota.NET.IntegrationTests.Endpoints;
 
 public class ProMatchesEndpointTests
 {
@@ -16,12 +16,10 @@ public class ProMatchesEndpointTests
 		var result = await _openDotaApi.ProMatches.GetProMatchesAsync();
 		_testOutputHelper.WriteLine(result.ToJsonString());
 
-		if (result != null)
-		{
-			Assert.Equal(100, result.Count);
-			Assert.True(result.TrueForAll(x => !string.IsNullOrWhiteSpace(x.LeagueName)));
-			Assert.True(result.TrueForAll(x => x.MatchId > 0));
-			Assert.True(result.TrueForAll(x => x.StartTime > 0));
-		}
+		Assert.NotNull(result);
+		Assert.Equal(100, result.Count);
+		Assert.True(result.TrueForAll(x => !string.IsNullOrWhiteSpace(x.LeagueName)));
+		Assert.True(result.TrueForAll(x => x.MatchId > 0));
+		Assert.True(result.TrueForAll(x => x.StartTime > 0));
 	}
 }

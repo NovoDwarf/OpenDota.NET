@@ -1,8 +1,11 @@
 <Solution>
   <Folder Name="/Sources/">
     <Project Path="Sources/OpenDota.NET/OpenDota.NET.csproj" />
+    <Project Path="Sources/OpenDota.NET.Microsoft.DependencyInjection/OpenDota.NET.Microsoft.DependencyInjection.csproj" />
   </Folder>
   <Folder Name="/Tests/">
     <Project Path="Tests/OpenDota.NET.Tests/OpenDota.NET.Tests.csproj" />
+    <Project Path="Tests/OpenDota.NET.IntegrationTests/OpenDota.NET.IntegrationTests.csproj" />
+    <Project Path="Tests/OpenDota.NET.Microsoft.DependencyInjection.Tests/OpenDota.NET.Microsoft.DependencyInjection.Tests.csproj" />
   </Folder>
 </Solution>

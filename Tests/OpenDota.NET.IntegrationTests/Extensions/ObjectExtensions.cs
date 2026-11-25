@@ -1,4 +1,4 @@
-namespace OpenDota.NET.Tests.Extensions;
+namespace OpenDota.NET.IntegrationTests.Extensions;
 
 public static class ObjectExtensions
 {

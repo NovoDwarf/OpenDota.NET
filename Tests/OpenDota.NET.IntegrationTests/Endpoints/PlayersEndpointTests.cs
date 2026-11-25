@@ -1,4 +1,4 @@
-﻿namespace OpenDota.NET.Tests.Endpoints;
+namespace OpenDota.NET.IntegrationTests.Endpoints;
 
 public class PlayersEndpointTests
 {
@@ -16,8 +16,8 @@ public class PlayersEndpointTests
 		var result = await _openDotaApi.Players.GetPlayerByIdAsync(34505203);
 		_testOutputHelper.WriteLine(result.ToJsonString());
 
-		if (result != null) 
-			Assert.Equal(34505203, result.Profile.AccountId);
+		Assert.NotNull(result);
+		Assert.Equal(34505203, result.Profile.AccountId);
 	}
 
 	[Fact]
@@ -26,15 +26,9 @@ public class PlayersEndpointTests
 		var result = await _openDotaApi.Players.GetPlayerWinLossByIdAsync(34505203);
 		_testOutputHelper.WriteLine(result.ToJsonString());
 
-		if (result != null)
-		{
-			Assert.True(result.Wins > 0);
-			Assert.True(result.Losses > 0);
-		}
-		else
-		{
-			Assert.Fail();
-		}
+		Assert.NotNull(result);
+		Assert.True(result.Wins > 0);
+		Assert.True(result.Losses > 0);
 	}
 
 	[Fact]
@@ -43,15 +37,9 @@ public class PlayersEndpointTests
 		var result = await _openDotaApi.Players.GetPlayerRecentMatchesAsync(34505203);
 		_testOutputHelper.WriteLine(result.ToJsonString());
 
-		if (result != null)
-		{
-			Assert.True(result.Count > 0);
-			Assert.True(result.TrueForAll(x => x.MatchId > 0));
-		}
-		else
-		{
-			Assert.Fail();
-		}
+		Assert.NotNull(result);
+		Assert.True(result.Count > 0);
+		Assert.True(result.TrueForAll(x => x.MatchId > 0));
 	}
 
 	[Fact]
@@ -60,15 +48,9 @@ public class PlayersEndpointTests
 		var result = await _openDotaApi.Players.GetPlayerMatchesAsync(34505203);
 		_testOutputHelper.WriteLine(result.ToJsonString());
 
-		if (result != null)
-		{
-			Assert.True(result.Count > 0);
-			Assert.True(result.TrueForAll(x => x.MatchId > 0));
-		}
-		else
-		{
-			Assert.Fail();
-		}
+		Assert.NotNull(result);
+		Assert.True(result.Count > 0);
+		Assert.True(result.TrueForAll(x => x.MatchId > 0));
 	}
 
 	[Fact]
@@ -77,15 +59,9 @@ public class PlayersEndpointTests
 		var result = await _openDotaApi.Players.GetPlayerHeroesAsync(34505203);
 		_testOutputHelper.WriteLine(result.ToJsonString());
 
-		if (result != null)
-		{
-			Assert.True(result.Count > 0);
-			Assert.True(result.TrueForAll(x => x.HeroId > 0));
-		}
-		else
-		{
-			Assert.Fail();
-		}
+		Assert.NotNull(result);
+		Assert.True(result.Count > 0);
+		Assert.True(result.TrueForAll(x => x.HeroId > 0));
 	}
 
 	[Fact]
@@ -94,15 +70,9 @@ public class PlayersEndpointTests
 		var result = await _openDotaApi.Players.GetPlayerPeersAsync(34505203);
 		_testOutputHelper.WriteLine(result.ToJsonString());
 
-		if (result != null)
-		{
-			Assert.True(result.Count > 0);
-			Assert.True(result.TrueForAll(x => x.AccountId > 0));
-		}
-		else
-		{
-			Assert.Fail();
-		}
+		Assert.NotNull(result);
+		Assert.True(result.Count > 0);
+		Assert.True(result.TrueForAll(x => x.AccountId > 0));
 	}
 
 	[Fact]
@@ -111,15 +81,9 @@ public class PlayersEndpointTests
 		var result = await _openDotaApi.Players.GetPlayerProsAsync(34505203);
 		_testOutputHelper.WriteLine(result.ToJsonString());
 
-		if (result != null)
-		{
-			Assert.True(result.Count > 0);
-			Assert.True(result.TrueForAll(x => x.AccountId > 0));
-		}
-		else
-		{
-			Assert.Fail();
-		}
+		Assert.NotNull(result);
+		Assert.True(result.Count > 0);
+		Assert.True(result.TrueForAll(x => x.AccountId > 0));
 	}
 
 	[Fact]
@@ -128,33 +92,25 @@ public class PlayersEndpointTests
 		var result = await _openDotaApi.Players.GetPlayerTotalsAsync(34505203);
 		_testOutputHelper.WriteLine(result.ToJsonString());
 
-		if (result != null)
-		{
-			Assert.True(result.Count > 0);
-			Assert.True(result.TrueForAll(x => !string.IsNullOrWhiteSpace(x.Field)));
-		}
-		else
-		{
-			Assert.Fail();
-		}
+		Assert.NotNull(result);
+		Assert.True(result.Count > 0);
+		Assert.True(result.TrueForAll(x => !string.IsNullOrWhiteSpace(x.Field)));
 	}
 
 	[Fact]
 	public async Task TestGetPlayerCounts()
 	{
 		var result = await _openDotaApi.Players.GetPlayerCountsAsync(34505203);
-		if (result != null)
-		{
-			_testOutputHelper.WriteLine(result.ToJsonString());
+		Assert.NotNull(result);
+		_testOutputHelper.WriteLine(result.ToJsonString());
 
-			Assert.True(result.GameMode.Count > 0);
-			Assert.True(result.IsRadiant.Count > 0);
-			Assert.True(result.LaneRole.Count > 0);
-			Assert.True(result.LeaverStatus.Count > 0);
-			Assert.True(result.LobbyType.Count > 0);
-			Assert.True(result.Patch.Count > 0);
-			Assert.True(result.Region.Count > 0);
-		}
+		Assert.True(result.GameMode.Count > 0);
+		Assert.True(result.IsRadiant.Count > 0);
+		Assert.True(result.LaneRole.Count > 0);
+		Assert.True(result.LeaverStatus.Count > 0);
+		Assert.True(result.LobbyType.Count > 0);
+		Assert.True(result.Patch.Count > 0);
+		Assert.True(result.Region.Count > 0);
 	}
 
 	[Fact]
@@ -163,14 +119,8 @@ public class PlayersEndpointTests
 		var result = await _openDotaApi.Players.GetPlayerHistogramsAsync(34505203, "comeback");
 		_testOutputHelper.WriteLine(result.ToJsonString());
 
-		if (result != null)
-		{
-			Assert.True(result.Count > 0);
-		}
-		else
-		{
-			Assert.Fail();
-		}
+		Assert.NotNull(result);
+		Assert.True(result.Count > 0);
 	}
 
 	[Fact]
@@ -178,7 +128,7 @@ public class PlayersEndpointTests
 	{
 		var result = await _openDotaApi.Players.GetPlayerWardMapAsync(34505203);
 		_testOutputHelper.WriteLine(result.ToJsonString());
-	
+
 		Assert.True(result is { Obs.Count: > 0 });
 	}
 
@@ -197,21 +147,8 @@ public class PlayersEndpointTests
 		var result = await _openDotaApi.Players.GetPlayerRatingsAsync(34505203);
 		_testOutputHelper.WriteLine(result.ToJsonString());
 
-		if (result != null)
-		{
-			if (result.Count >= 0)
-			{
-				Assert.True(result.TrueForAll(x => x.AccountId > 0));
-			}
-			else
-			{
-				Assert.Fail();
-			}
-		}
-		else
-		{
-			Assert.Fail();
-		}
+		Assert.NotNull(result);
+		Assert.True(result.TrueForAll(x => x.AccountId > 0));
 	}
 
 	[Fact]
@@ -220,7 +157,7 @@ public class PlayersEndpointTests
 		var result = await _openDotaApi.Players.GetPlayerHeroRankingsAsync(34505203);
 		_testOutputHelper.WriteLine(result.ToJsonString());
 
-		if (result != null) 
-			Assert.True(result.Count > 0);
+		Assert.NotNull(result);
+		Assert.True(result.Count > 0);
 	}
 }
