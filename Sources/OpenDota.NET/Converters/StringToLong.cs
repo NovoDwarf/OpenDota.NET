@@ -1,4 +1,4 @@
-﻿namespace OpenDotaDotNet.Converters;
+namespace OpenDotaDotNet.Converters;
 
 /// <inheritdoc/>
 public class StringToLong : JsonConverter<long>
@@ -10,7 +10,7 @@ public class StringToLong : JsonConverter<long>
 		{
 			var value = reader.GetString();
 
-			return int.TryParse(value, NumberStyles.Any, CultureInfo.InvariantCulture, out var result)
+			return long.TryParse(s: value, style: NumberStyles.Any, provider: CultureInfo.InvariantCulture, result: out var result)
 				? result
 				: long.MinValue;
 		}

@@ -1,6 +1,9 @@
-﻿namespace OpenDotaDotNet.Converters;
+namespace OpenDotaDotNet.Converters;
 
-/// <inheritdoc />
+/// <summary>
+/// Converts a <see cref="string"/> to a list of <see cref="Enum"/>
+/// </summary>
+/// <typeparam name="T">Any <see cref="Enum"/></typeparam>
 public class StringToEnumList<T> : JsonConverter<List<T>> where T : struct, Enum
 {
 	/// <inheritdoc />
@@ -24,17 +27,17 @@ public class StringToEnumList<T> : JsonConverter<List<T>> where T : struct, Enum
 				{
 					var jsonPropertyNameAttr = member.GetCustomAttribute<JsonPropertyNameAttribute>();
 
-					if (jsonPropertyNameAttr == null || !jsonPropertyNameAttr.Name.Equals(jsonValue, StringComparison.OrdinalIgnoreCase)) 
+					if (jsonPropertyNameAttr == null || !jsonPropertyNameAttr.Name.Equals(value: jsonValue, comparisonType: StringComparison.OrdinalIgnoreCase))
 						continue;
 
-					if (!Enum.TryParse(typeof(T), member.Name, true, out var result)) 
+					if (!Enum.TryParse(typeof(T), member.Name, true, out var result))
 						continue;
 
 					list.Add((T)result);
 					break;
 				}
 
-				if (Enum.TryParse(jsonValue, true, out T parsedResult))
+				if (Enum.TryParse(value: jsonValue, ignoreCase: true, result: out T parsedResult))
 				{
 					list.Add(parsedResult);
 				}

@@ -1,4 +1,4 @@
-﻿namespace OpenDotaDotNet.Converters;
+namespace OpenDotaDotNet.Converters;
 
 /// <inheritdoc/>
 public class StringToIntNull : JsonConverter<int?>
@@ -10,7 +10,7 @@ public class StringToIntNull : JsonConverter<int?>
 		{
 			var value = reader.GetString();
 
-			return int.TryParse(value, NumberStyles.Any, CultureInfo.InvariantCulture, out var result)
+			return int.TryParse(s: value, style: NumberStyles.Any, provider: CultureInfo.InvariantCulture, result: out var result)
 				? result
 				: null;
 		}

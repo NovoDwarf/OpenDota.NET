@@ -1,32 +1,33 @@
-﻿namespace OpenDotaDotNet.Enums;
+namespace OpenDotaDotNet.Enums;
 
 /// <summary>
-/// Lane roles
+/// Represents a lane roles from Dota 2.
 /// </summary>
+[JsonConverter(typeof(NumericEnumConverter<LaneRole>))]
 public enum LaneRole
 {
 	/// <summary>
-	/// None only for internal use
+	/// None only for internal use.
 	/// </summary>
 	None = 0,
 
 	/// <summary>
-	/// Safe lane role
+	/// Safe lane role.
 	/// </summary>
 	Safe = 1,
 
 	/// <summary>
-	/// Mid lane role
+	/// Mid lane role.
 	/// </summary>
 	Mid = 2,
 
 	/// <summary>
-	/// Offlane role
+	/// Offlane role.
 	/// </summary>
 	Offlane = 3,
 
 	/// <summary>
-	/// Jungle role
+	/// Jungle role.
 	/// </summary>
 	Jungle = 4
 }

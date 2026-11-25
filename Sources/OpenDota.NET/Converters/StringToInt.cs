@@ -1,4 +1,4 @@
-﻿namespace OpenDotaDotNet.Converters;
+namespace OpenDotaDotNet.Converters;
 
 /// <inheritdoc/>
 public class StringToInt : JsonConverter<int>
@@ -10,7 +10,7 @@ public class StringToInt : JsonConverter<int>
 		{
 			var value = reader.GetString();
 
-			return int.TryParse(value, NumberStyles.Any, CultureInfo.InvariantCulture, out var result)
+			return int.TryParse(s: value, style: NumberStyles.Any, provider: CultureInfo.InvariantCulture, result: out var result)
 				? result
 				: int.MinValue;
 		}

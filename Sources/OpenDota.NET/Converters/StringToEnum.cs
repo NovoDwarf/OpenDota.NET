@@ -1,6 +1,9 @@
-﻿namespace OpenDotaDotNet.Converters;
+namespace OpenDotaDotNet.Converters;
 
-/// <inheritdoc />
+/// <summary>
+/// Converts a <see cref="string"/> to an <see cref="Enum"/>
+/// </summary>
+/// <typeparam name="T">Any <see cref="Enum"/></typeparam>
 public class StringToEnum<T> : JsonConverter<T> where T : struct, Enum
 {
 	/// <inheritdoc />
@@ -13,15 +16,15 @@ public class StringToEnum<T> : JsonConverter<T> where T : struct, Enum
 			foreach (var member in typeToConvert.GetMembers(BindingFlags.Public | BindingFlags.Static))
 			{
 				var jsonPropertyNameAttr = member.GetCustomAttribute<JsonPropertyNameAttribute>();
-				
-				if (jsonPropertyNameAttr == null || !jsonPropertyNameAttr.Name.Equals(jsonValue, StringComparison.OrdinalIgnoreCase)) 
+
+				if (jsonPropertyNameAttr == null || !jsonPropertyNameAttr.Name.Equals(value: jsonValue, comparisonType: StringComparison.OrdinalIgnoreCase))
 					continue;
 
-				if (Enum.TryParse(typeToConvert, member.Name, true, out var result))
+				if (Enum.TryParse(enumType: typeToConvert, value: member.Name, ignoreCase: true, result: out var result))
 					return (T)result;
 			}
 
-			if (Enum.TryParse(typeToConvert, jsonValue, true, out var parsedResult))
+			if (Enum.TryParse(enumType: typeToConvert, value: jsonValue, ignoreCase: true, result: out var parsedResult))
 				return (T)parsedResult;
 
 			throw new JsonException($"Unable to convert '{jsonValue}' to {typeToConvert.Name}.");
@@ -29,8 +32,8 @@ public class StringToEnum<T> : JsonConverter<T> where T : struct, Enum
 
 		if (reader.TokenType == JsonTokenType.Number)
 		{
-			if (reader.TryGetInt32(out var intValue) && Enum.IsDefined(typeToConvert, intValue))
-				return (T)Enum.ToObject(typeToConvert, intValue);
+			if (reader.TryGetInt32(out var intValue) && Enum.IsDefined(enumType: typeToConvert, value: intValue))
+				return (T)Enum.ToObject(enumType: typeToConvert, value: intValue);
 
 			throw new JsonException($"Unable to convert number '{intValue}' to {typeToConvert.Name}.");
 		}

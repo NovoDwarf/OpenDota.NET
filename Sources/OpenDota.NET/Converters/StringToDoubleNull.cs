@@ -1,6 +1,8 @@
-﻿namespace OpenDotaDotNet.Converters;
+namespace OpenDotaDotNet.Converters;
 
-/// <inheritdoc/>
+/// <summary>
+/// Converts a <see cref="string"/> to a nullable <see cref="double"/>
+/// </summary>
 public class StringToDoubleNull : JsonConverter<double?>
 {
 	/// <inheritdoc/>
@@ -10,7 +12,7 @@ public class StringToDoubleNull : JsonConverter<double?>
 		{
 			var value = reader.GetString();
 
-			return double.TryParse(value, NumberStyles.Any, CultureInfo.InvariantCulture, out var result)
+			return double.TryParse(s: value, style: NumberStyles.Any, provider: CultureInfo.InvariantCulture, result: out var result)
 				? result
 				: null;
 		}

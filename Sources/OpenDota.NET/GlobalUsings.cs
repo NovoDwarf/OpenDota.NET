@@ -11,6 +11,7 @@ global using System.Text.Json;
 global using System.Text.Json.Nodes;
 global using System.Text.Json.Serialization;
 global using System.Threading.Tasks;
+global using JetBrains.Annotations;
 global using OpenDotaDotNet.Converters;
 global using OpenDotaDotNet.Enums;
 global using OpenDotaDotNet.Extensions;
