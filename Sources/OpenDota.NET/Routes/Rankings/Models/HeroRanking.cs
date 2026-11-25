@@ -1,0 +1,20 @@
+﻿namespace OpenDota.NET.Routes.Rankings.Models;
+
+/// <summary>
+/// Represents a hero ranking.
+/// </summary>
+[UsedImplicitly]
+public class HeroRanking
+{
+	/// <summary>
+	/// Gets the ID value of the hero played.
+	/// </summary>
+	[JsonPropertyName("hero_id")]
+	public long HeroId { get; init; }
+
+	/// <summary>
+	/// Gets the rankings of the hero.
+	/// </summary>
+	[JsonPropertyName("rankings")]
+	public List<RankingPlayer> Rankings { get; init; } = [];
+}

@@ -1,0 +1,14 @@
+namespace OpenDota.NET.Routes.ParsedMatches.Models;
+
+/// <summary>
+/// Represents a parsed match.
+/// </summary>
+[PublicAPI]
+public class ParsedMatch
+{
+	/// <summary>
+	/// Gets ID used to identify individual matches, e.g. 3703866531.
+	/// </summary>
+	[JsonPropertyName("match_id")]
+	public long MatchId { get; init; }
+}

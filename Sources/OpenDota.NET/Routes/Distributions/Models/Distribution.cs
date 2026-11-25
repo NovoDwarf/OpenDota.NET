@@ -1,0 +1,14 @@
+namespace OpenDota.NET.Routes.Distributions.Models;
+
+/// <summary>
+/// Represents a distribution.
+/// </summary>
+[PublicAPI]
+public class Distribution
+{
+	/// <summary>
+	/// Gets the ranks.
+	/// </summary>
+	[JsonPropertyName("ranks")]
+	public Ranks Ranks { get; init; } = new();
+}

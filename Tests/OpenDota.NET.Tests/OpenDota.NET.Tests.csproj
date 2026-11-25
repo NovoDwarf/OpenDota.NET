@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\..\Sources\OpenDota.NET\OpenDota.NET.csproj" />
+  </ItemGroup>
+</Project>

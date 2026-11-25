@@ -1,0 +1,40 @@
+<Project>
+  <PropertyGroup>
+    <ProjectTargetFrameworks>net9.0;net10.0;net11.0</ProjectTargetFrameworks>
+    <ProjectAuthors>NikolayIT, rist0, d1rknwh1te3</ProjectAuthors>
+    <ProjectCopyright>NikolayIT, rist0, d1rknwh1te3</ProjectCopyright>
+    <ProjectRepositoryUrl>https://github.com/d1rknwh1te3/OpenDota.NET</ProjectRepositoryUrl>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(MSBuildProjectName)' == 'OpenDota.NET' Or '$(MSBuildProjectName)' == 'OpenDota.NET.Microsoft.DependencyInjection'">
+    <Authors>$(ProjectAuthors)</Authors>
+    <Copyright>$(ProjectCopyright)</Copyright>
+    <PackageProjectUrl>$(ProjectRepositoryUrl)</PackageProjectUrl>
+    <RepositoryUrl>$(ProjectRepositoryUrl)</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>dota, dota2, api, opendota, opendota.com, client</PackageTags>
+    <PackageIcon>icon-144x144.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Company>d1rknwh1te3</Company>
+    <Description>.NET wrapper for the OpenDota API. The OpenDota API provides Dota 2 related data including advanced match data extracted from match replays.</Description>
+
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(MSBuildProjectName)' == 'OpenDota.NET'">
+    <PackageId>OpenDota.NET.Remade</PackageId>
+    <Title>OpenDota.NET Remade</Title>
+    <Product>OpenDota.NET Remade</Product>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(MSBuildProjectName)' == 'OpenDota.NET.Microsoft.DependencyInjection'">
+    <PackageId>OpenDota.NET.Remade.Microsoft.DependencyInjection</PackageId>
+    <Title>OpenDota.NET Microsoft Dependency Injection</Title>
+    <Product>OpenDota.NET Remade</Product>
+    <Description>Microsoft.Extensions.DependencyInjection integration for OpenDota.NET.</Description>
+  </PropertyGroup>
+</Project>
