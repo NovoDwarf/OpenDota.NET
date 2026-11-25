@@ -12,9 +12,9 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddOpenDotaApi(this IServiceCollection services, Action<OpenDotaSettings>? configure = null)
     {
         ArgumentNullException.ThrowIfNull(services);
-      
+
         services.AddSingleton<IOpenDotaApi>(_ => new OpenDotaApi(configure));
-       
+
         return services;
     }
 }

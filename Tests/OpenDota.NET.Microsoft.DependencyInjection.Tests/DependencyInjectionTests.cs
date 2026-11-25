@@ -10,13 +10,13 @@ public class DependencyInjectionTests
     {
         var services = new ServiceCollection();
         string? configuredKey = null;
-      
+
         services.AddOpenDotaApi(settings =>
         {
             settings.ApiKey = "test-key";
             configuredKey = settings.ApiKey;
         });
-      
+
         using var provider = services.BuildServiceProvider();
 
         var client = provider.GetRequiredService<IOpenDotaApi>();
@@ -29,9 +29,9 @@ public class DependencyInjectionTests
     public async Task ProviderDisposesClient()
     {
         var services = new ServiceCollection();
-       
+
         services.AddOpenDotaApi();
-       
+
         var provider = services.BuildServiceProvider();
         var client = provider.GetRequiredService<IOpenDotaApi>();
 
