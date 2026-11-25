@@ -1,4 +1,8 @@
-﻿namespace OpenDota.NET.Routes.Leagues;
+using OpenDota.NET.Routes.Leagues.Models;
+using OpenDota.NET.Routes.Teams.Models;
+using OpenDota.NET.Utilities;
+
+namespace OpenDota.NET.Routes.Leagues;
 
 /// <inheritdoc />
 public class LeagueEndpoint : ILeagueEndpoint
@@ -18,9 +22,9 @@ public class LeagueEndpoint : ILeagueEndpoint
 	public string Url => new Uri(baseUri: _requester.BaseAddress, relativeUri: Endpoint).AbsoluteUri;
 
 	/// <inheritdoc />
-	public Task<List<Models.League>?> GetLeaguesAsync()
+	public Task<List<League>?> GetLeaguesAsync()
 	{
-		return _requester.GetResponseAsync<List<Models.League>>(Endpoint);
+		return _requester.GetResponseAsync<List<League>>(Endpoint);
 	}
 
 	/// <inheritdoc />

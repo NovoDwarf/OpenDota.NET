@@ -1,3 +1,6 @@
+using OpenDota.NET.Enums;
+using OpenDota.NET.Routes.Leagues.Models;
+
 namespace OpenDota.NET.Routes.Matches.Models;
 
 /// <summary>

@@ -1,3 +1,5 @@
+using OpenDota.NET.Routes.Leagues.Enums;
+
 namespace OpenDota.NET.Routes.Leagues.Models;
 
 /// <summary>
@@ -16,13 +18,13 @@ public class League
 	/// Gets the ticket for the tournament.
 	/// </summary>
 	[JsonPropertyName("ticket")]
-	public string Ticket { get; init; } = string.Empty;
+	public string? Ticket { get; init; }
 
 	/// <summary>
 	/// Gets the banner for the tournament.
 	/// </summary>
 	[JsonPropertyName("banner")]
-	public string Banner { get; init; } = string.Empty;
+	public string? Banner { get; init; }
 
 	/// <summary>
 	/// Gets the tier for the tournament.

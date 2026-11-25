@@ -1,3 +1,5 @@
+using OpenDota.NET.Routes.Request.Models;
+
 namespace OpenDota.NET.Routes.Request;
 
 /// <summary>

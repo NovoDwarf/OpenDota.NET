@@ -1,3 +1,6 @@
+using OpenDota.NET.Routes.Leagues.Models;
+using OpenDota.NET.Routes.Teams.Models;
+
 namespace OpenDota.NET.Routes.Leagues;
 
 /// <summary>
@@ -16,13 +19,13 @@ public interface ILeagueEndpoint
 	/// Get league data.
 	/// </summary>
 	/// <returns>League data.</returns>
-	public Task<List<Models.League>?> GetLeaguesAsync();
+	public Task<List<League>?> GetLeaguesAsync();
 
     /// <summary>Gets a league by its ID.</summary>
-    public Task<Models.League?> GetLeagueAsync(long leagueId);
+    public Task<League?> GetLeagueAsync(long leagueId);
 
     /// <summary>Gets matches in a league.</summary>
-    public Task<List<Models.LeagueMatch>?> GetLeagueMatchesAsync(long leagueId);
+    public Task<List<LeagueMatch>?> GetLeagueMatchesAsync(long leagueId);
 
     /// <summary>Gets match IDs in a league.</summary>
     public Task<List<long>?> GetLeagueMatchIdsAsync(long leagueId);

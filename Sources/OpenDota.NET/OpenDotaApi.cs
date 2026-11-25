@@ -1,3 +1,29 @@
+using OpenDota.NET.Routes.Benchmarks;
+using OpenDota.NET.Routes.Constants;
+using OpenDota.NET.Routes.Distributions;
+using OpenDota.NET.Routes.Explorer;
+using OpenDota.NET.Routes.FindMatches;
+using OpenDota.NET.Routes.Health;
+using OpenDota.NET.Routes.Heroes;
+using OpenDota.NET.Routes.HeroStats;
+using OpenDota.NET.Routes.Leagues;
+using OpenDota.NET.Routes.Live;
+using OpenDota.NET.Routes.Matches;
+using OpenDota.NET.Routes.Metadata;
+using OpenDota.NET.Routes.ParsedMatches;
+using OpenDota.NET.Routes.Players;
+using OpenDota.NET.Routes.ProMatches;
+using OpenDota.NET.Routes.ProPlayers;
+using OpenDota.NET.Routes.PublicMatches;
+using OpenDota.NET.Routes.Rankings;
+using OpenDota.NET.Routes.Records;
+using OpenDota.NET.Routes.Request;
+using OpenDota.NET.Routes.Scenarios;
+using OpenDota.NET.Routes.Schema;
+using OpenDota.NET.Routes.Search;
+using OpenDota.NET.Routes.Teams;
+using OpenDota.NET.Utilities;
+
 namespace OpenDota.NET;
 
 // TODO: Implement PLAYERS BY RANK endpoint
@@ -12,12 +38,17 @@ public sealed class OpenDotaApi : IOpenDotaApi, IDisposable
 	/// </summary>
 	/// <param name="configure">Action to configure <see cref="OpenDotaSettings"/></param>
 	public OpenDotaApi(Action<OpenDotaSettings>? configure = null)
+		: this(configure: configure, handler: null)
+	{
+	}
+
+	internal OpenDotaApi(Action<OpenDotaSettings>? configure, HttpMessageHandler? handler)
 	{
 		var settings = new OpenDotaSettings();
 
 		configure?.Invoke(settings);
 
-		var request = new Requester(settings);
+		var request = new Requester(settings: settings, handler: handler);
 
 		_requester = request;
 

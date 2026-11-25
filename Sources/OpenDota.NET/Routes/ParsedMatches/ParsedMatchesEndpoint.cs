@@ -1,3 +1,6 @@
+using OpenDota.NET.Routes.ParsedMatches.Models;
+using OpenDota.NET.Utilities;
+
 namespace OpenDota.NET.Routes.ParsedMatches;
 
 /// <inheritdoc />
@@ -19,10 +22,10 @@ public class ParsedMatchesEndpoint : IParsedMatchesEndpoint
 
 
 	/// <inheritdoc />
-	public Task<ParsedMatch?> GetParsedMatchesAsync(long lessThenMatchId)
+	public Task<List<ParsedMatch>?> GetParsedMatchesAsync(long? lessThanMatchId = null)
 	{
-		return _requester.GetResponseAsync<ParsedMatch>(
+		return _requester.GetResponseAsync<List<ParsedMatch>>(
 			url: Endpoint,
-			queryParameters: [$"less_then_match_id={lessThenMatchId}"]);
+			queryParameters: lessThanMatchId.HasValue ? [$"less_than_match_id={lessThanMatchId.Value}"] : null);
 	}
 }

@@ -1,3 +1,6 @@
+using OpenDota.NET.Routes.Request.Models;
+using OpenDota.NET.Utilities;
+
 namespace OpenDota.NET.Routes.Request;
 
 /// <inheritdoc />
@@ -26,18 +29,8 @@ public class RequestEndpoint : IRequestEndpoint
 	}
 
 	/// <inheritdoc />
-	public async Task<ParseRequest?> SubmitNewParseRequestAsync(long matchId)
+	public Task<ParseRequest?> SubmitNewParseRequestAsync(long matchId)
 	{
-		using var response = await _requester.PostRequestAsync($"{Endpoint}/{matchId}");
-
-		response.EnsureSuccessStatusCode();
-
-		var content = await response.Content.ReadAsStringAsync();
-
-		// TODO: json to class
-
-		var parseRequest = JsonSerializer.Deserialize<ParseRequest>(content);
-
-		return parseRequest;
+		return _requester.PostResponseAsync<ParseRequest>($"{Endpoint}/{matchId}");
 	}
 }

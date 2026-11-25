@@ -1,3 +1,5 @@
+using OpenDota.NET.Routes.ParsedMatches.Models;
+
 namespace OpenDota.NET.Routes.ParsedMatches;
 
 /// <summary>
@@ -13,7 +15,7 @@ public interface IParsedMatchesEndpoint
 	public string Url { get; }
 
 	/// <summary>Gets parsed matches before the specified match ID.</summary>
-	/// <param name="lessThenMatchId">Exclusive upper bound for the match ID.</param>
+	/// <param name="lessThanMatchId">Optional exclusive upper bound for the match ID.</param>
 	/// <returns>The parsed matches response.</returns>
-	public Task<ParsedMatch?> GetParsedMatchesAsync(long lessThenMatchId);
+	public Task<List<ParsedMatch>?> GetParsedMatchesAsync(long? lessThanMatchId = null);
 }

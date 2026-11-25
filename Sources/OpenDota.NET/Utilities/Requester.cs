@@ -29,10 +29,19 @@ public sealed class Requester : IDisposable
     {
         using var response = await _httpClient.GetAsync(BuildUrl(url: url, queryParameters: queryParameters));
 
+        return await ReadResponseAsync<T>(response);
+    }
+
+    internal async Task<T?> PostResponseAsync<T>(string url, HttpContent? content = null) where T : class
+    {
+        using var response = await PostRequestAsync(url: url, content: content);
+        return await ReadResponseAsync<T>(response);
+    }
+
+    private async Task<T?> ReadResponseAsync<T>(HttpResponseMessage response) where T : class
+    {
         response.EnsureSuccessStatusCode();
-
         var textResponse = await response.Content.ReadAsStringAsync();
-
         return string.IsNullOrEmpty(textResponse)
             ? null
             : JsonSerializer.Deserialize<T>(json: textResponse, options: _options);
