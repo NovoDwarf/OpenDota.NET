@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Distributions;
+namespace OpenDota.NET.Routes.Distributions;
 
 /// <summary>
 /// Distributions endpoint.

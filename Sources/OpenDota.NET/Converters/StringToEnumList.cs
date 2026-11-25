@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Converters;
+namespace OpenDota.NET.Converters;
 
 /// <summary>
 /// Converts a <see cref="string"/> to a list of <see cref="Enum"/>

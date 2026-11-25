@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Converters;
+namespace OpenDota.NET.Converters;
 
 /// <inheritdoc/>
 public class StringToIntNull : JsonConverter<int?>

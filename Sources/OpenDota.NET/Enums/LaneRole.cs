@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Enums;
+namespace OpenDota.NET.Enums;
 
 /// <summary>
 /// Represents a lane roles from Dota 2.

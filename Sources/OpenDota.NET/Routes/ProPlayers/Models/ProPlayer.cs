@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.ProPlayers.Models;
+namespace OpenDota.NET.Routes.ProPlayers.Models;
 
 /// <summary>A professional player.</summary>
 [UsedImplicitly]

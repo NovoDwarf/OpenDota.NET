@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Heroes.Models;
+namespace OpenDota.NET.Routes.Heroes.Models;
 
 /// <summary>
 /// Represents a hero item popularity.

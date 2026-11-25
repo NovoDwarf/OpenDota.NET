@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Benchmarks;
+namespace OpenDota.NET.Routes.Benchmarks;
 
 /// <summary>
 /// Benchmark endpoint.

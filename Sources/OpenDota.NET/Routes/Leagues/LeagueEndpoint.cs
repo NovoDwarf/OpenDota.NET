@@ -1,4 +1,4 @@
-﻿namespace OpenDotaDotNet.Routes.League;
+﻿namespace OpenDota.NET.Routes.Leagues;
 
 /// <inheritdoc />
 public class LeagueEndpoint : ILeagueEndpoint

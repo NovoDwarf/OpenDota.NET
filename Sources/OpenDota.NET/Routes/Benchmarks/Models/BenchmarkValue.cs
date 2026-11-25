@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Benchmarks.Models;
+namespace OpenDota.NET.Routes.Benchmarks.Models;
 
 /// <summary>
 /// Represents a benchmark value.

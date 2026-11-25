@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.ProPlayers;
+namespace OpenDota.NET.Routes.ProPlayers;
 
 /// <summary>
 /// Represents pro players endpoint.

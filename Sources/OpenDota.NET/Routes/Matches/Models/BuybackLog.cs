@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Matches.Models;
+namespace OpenDota.NET.Routes.Matches.Models;
 
 /// <summary>A buyback event.</summary>
 [PublicAPI]

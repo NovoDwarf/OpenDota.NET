@@ -1,4 +1,4 @@
-﻿namespace OpenDotaDotNet.Routes.Constants.Enums;
+﻿namespace OpenDota.NET.Routes.Constants.Enums;
 
 /// <summary>
 /// Represents a constant.

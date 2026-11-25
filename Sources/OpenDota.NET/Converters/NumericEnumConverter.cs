@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Converters;
+namespace OpenDota.NET.Converters;
 
 /// <summary>Reads numeric enum values, preserving values added by the API.</summary>
 public sealed class NumericEnumConverter<T> : JsonConverter<T> where T : struct, Enum

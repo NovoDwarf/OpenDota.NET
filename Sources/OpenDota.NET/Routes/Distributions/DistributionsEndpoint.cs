@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Distributions;
+namespace OpenDota.NET.Routes.Distributions;
 
 /// <inheritdoc />
 public class DistributionsEndpoint : IDistributionsEndpoint

@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Health;
+namespace OpenDota.NET.Routes.Health;
 
 /// <summary>
 /// Health endpoint.

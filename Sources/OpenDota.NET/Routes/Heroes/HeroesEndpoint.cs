@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Heroes;
+namespace OpenDota.NET.Routes.Heroes;
 
 /// <inheritdoc />
 public class HeroesEndpoint : IHeroesEndpoint

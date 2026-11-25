@@ -1,4 +1,4 @@
-﻿namespace OpenDotaDotNet;
+﻿namespace OpenDota.NET;
 
 /// <summary>
 /// The OpenDota API provides Dota 2 related data including advanced match data extracted from match replays.

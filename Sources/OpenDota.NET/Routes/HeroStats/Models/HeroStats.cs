@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.HeroStats.Models;
+namespace OpenDota.NET.Routes.HeroStats.Models;
 
 /// <summary>
 /// Represents hero stats.

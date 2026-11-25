@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Metadata.Models;
+namespace OpenDota.NET.Routes.Metadata.Models;
 
 /// <summary>
 /// Represents the scenarios.

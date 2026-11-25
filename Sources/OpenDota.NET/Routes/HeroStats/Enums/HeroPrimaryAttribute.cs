@@ -1,4 +1,4 @@
-﻿namespace OpenDotaDotNet.Routes.HeroStats.Enums;
+﻿namespace OpenDota.NET.Routes.HeroStats.Enums;
 
 /// <summary>
 /// The primary attribute of the hero.

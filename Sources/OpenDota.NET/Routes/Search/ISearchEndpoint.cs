@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Search;
+namespace OpenDota.NET.Routes.Search;
 
 /// <summary>
 /// Represents search endpoint.

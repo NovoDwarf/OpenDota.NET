@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Explorer;
+namespace OpenDota.NET.Routes.Explorer;
 
 /// <summary>
 /// Represents an explorer endpoint.

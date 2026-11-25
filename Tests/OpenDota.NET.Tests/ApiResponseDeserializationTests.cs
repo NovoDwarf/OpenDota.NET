@@ -1,5 +1,5 @@
 using JsonSerializer = System.Text.Json.JsonSerializer;
-using OpenDotaDotNet.Routes.Health.Models;
+using OpenDota.NET.Routes.Health.Models;
 
 namespace OpenDota.NET.Tests;
 
@@ -9,9 +9,9 @@ public class ApiResponseDeserializationTests
     public void MissingFieldsUseExplicitDefaults()
     {
         var options = new OpenDotaSettings().JsonSerializerOptions;
-        var purchase = JsonSerializer.Deserialize<OpenDotaDotNet.Routes.Matches.Models.PurchaseLog>("{}", options);
-        var profile = JsonSerializer.Deserialize<OpenDotaDotNet.Routes.Players.Models.Profile>("{}", options);
-        var state = JsonSerializer.Deserialize<OpenDotaDotNet.Routes.Request.Models.ParseRequestState>("{}", options);
+        var purchase = JsonSerializer.Deserialize<OpenDota.NET.Routes.Matches.Models.PurchaseLog>("{}", options);
+        var profile = JsonSerializer.Deserialize<OpenDota.NET.Routes.Players.Models.Profile>("{}", options);
+        var state = JsonSerializer.Deserialize<OpenDota.NET.Routes.Request.Models.ParseRequestState>("{}", options);
         var match = JsonSerializer.Deserialize<PublicMatch>("{}", options);
 
         Assert.Equal(string.Empty, purchase!.Key);
@@ -56,9 +56,9 @@ public class ApiResponseDeserializationTests
     public void NumericEnumsPreserveApiValues(string json, long expected)
     {
         var options = new OpenDotaSettings().JsonSerializerOptions;
-        var mode = JsonSerializer.Deserialize<OpenDotaDotNet.Enums.GameMode>(json, options);
-        var lobby = JsonSerializer.Deserialize<OpenDotaDotNet.Enums.LobbyType>(json, options);
-        var role = JsonSerializer.Deserialize<OpenDotaDotNet.Enums.LaneRole>(json, options);
+        var mode = JsonSerializer.Deserialize<OpenDota.NET.Enums.GameMode>(json, options);
+        var lobby = JsonSerializer.Deserialize<OpenDota.NET.Enums.LobbyType>(json, options);
+        var role = JsonSerializer.Deserialize<OpenDota.NET.Enums.LaneRole>(json, options);
 
         Assert.Equal(expected, (long)mode);
         Assert.Equal(expected, (long)lobby);

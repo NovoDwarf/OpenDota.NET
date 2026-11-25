@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Schema;
+namespace OpenDota.NET.Routes.Schema;
 
 /// <summary>Provides access to the schema endpoint.</summary>
 [UsedImplicitly]

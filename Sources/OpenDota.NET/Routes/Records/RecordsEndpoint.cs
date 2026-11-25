@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Records;
+namespace OpenDota.NET.Routes.Records;
 
 /// <inheritdoc />
 [UsedImplicitly]

@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.FindMatches.Models;
+namespace OpenDota.NET.Routes.FindMatches.Models;
 
 /// <summary>
 /// Represents a single match.

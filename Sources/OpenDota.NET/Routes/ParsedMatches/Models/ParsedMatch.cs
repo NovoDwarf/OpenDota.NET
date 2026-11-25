@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.ParsedMatches.Models;
+namespace OpenDota.NET.Routes.ParsedMatches.Models;
 
 /// <summary>
 /// Represents a parsed match.

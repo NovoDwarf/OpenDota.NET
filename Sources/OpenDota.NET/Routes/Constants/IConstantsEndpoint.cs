@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Constants;
+namespace OpenDota.NET.Routes.Constants;
 
 /// <summary>
 /// Constants endpoint.

@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.ParsedMatches;
+namespace OpenDota.NET.Routes.ParsedMatches;
 
 /// <inheritdoc />
 public class ParsedMatchesEndpoint : IParsedMatchesEndpoint

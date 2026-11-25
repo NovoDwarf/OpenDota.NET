@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.PublicMatches;
+namespace OpenDota.NET.Routes.PublicMatches;
 
 /// <summary>
 /// Public matches endpoint.

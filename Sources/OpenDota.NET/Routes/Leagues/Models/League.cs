@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.League.Models;
+namespace OpenDota.NET.Routes.Leagues.Models;
 
 /// <summary>
 /// Represents a league.

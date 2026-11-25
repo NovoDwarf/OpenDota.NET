@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Explorer;
+namespace OpenDota.NET.Routes.Explorer;
 
 /// <inheritdoc />
 public class ExplorerEndpoint : IExplorerEndpoint

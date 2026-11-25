@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.HeroStats;
+namespace OpenDota.NET.Routes.HeroStats;
 
 /// <summary>
 /// Hero stats endpoint.

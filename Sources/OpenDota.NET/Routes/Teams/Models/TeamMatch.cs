@@ -1,4 +1,4 @@
-﻿namespace OpenDotaDotNet.Routes.Teams.Models;
+﻿namespace OpenDota.NET.Routes.Teams.Models;
 
 /// <summary>
 /// Represents a team match.

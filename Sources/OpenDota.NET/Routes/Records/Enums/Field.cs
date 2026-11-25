@@ -1,4 +1,4 @@
-﻿namespace OpenDotaDotNet.Routes.Records.Enums;
+﻿namespace OpenDota.NET.Routes.Records.Enums;
 
 /// <summary>
 /// Field

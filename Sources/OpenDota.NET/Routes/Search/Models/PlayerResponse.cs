@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Search.Models;
+namespace OpenDota.NET.Routes.Search.Models;
 
 /// <summary>
 /// Represents a response by PersonaName.

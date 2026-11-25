@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Live.Models;
+namespace OpenDota.NET.Routes.Live.Models;
 
 /// <summary>
 /// Represents a player in a live game.

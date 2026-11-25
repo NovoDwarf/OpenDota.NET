@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Teams;
+namespace OpenDota.NET.Routes.Teams;
 
 /// <summary>
 /// Represents a teams endpoint.

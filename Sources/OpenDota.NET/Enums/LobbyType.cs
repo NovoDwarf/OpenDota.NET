@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Enums;
+namespace OpenDota.NET.Enums;
 
 /// <summary>Values from the OpenDota dotaconstants repository.</summary>
 [JsonConverter(typeof(NumericEnumConverter<LobbyType>))]

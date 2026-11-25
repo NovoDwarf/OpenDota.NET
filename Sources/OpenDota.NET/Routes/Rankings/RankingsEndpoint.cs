@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Rankings;
+namespace OpenDota.NET.Routes.Rankings;
 
 /// <summary>Provides access to the rankings endpoint.</summary>
 [UsedImplicitly]

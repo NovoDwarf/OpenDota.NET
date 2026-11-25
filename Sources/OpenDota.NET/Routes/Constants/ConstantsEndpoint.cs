@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Constants;
+namespace OpenDota.NET.Routes.Constants;
 
 /// <inheritdoc />
 public class ConstantsEndpoint : IConstantsEndpoint

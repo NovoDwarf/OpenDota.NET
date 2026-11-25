@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Distributions.Models;
+namespace OpenDota.NET.Routes.Distributions.Models;
 
 /// <summary>
 /// Represents a sum.

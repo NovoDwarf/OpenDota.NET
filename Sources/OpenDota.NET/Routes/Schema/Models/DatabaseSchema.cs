@@ -1,4 +1,4 @@
-﻿namespace OpenDotaDotNet.Routes.Schema.Models;
+﻿namespace OpenDota.NET.Routes.Schema.Models;
 
 /// <summary>
 /// Represents a database schema.

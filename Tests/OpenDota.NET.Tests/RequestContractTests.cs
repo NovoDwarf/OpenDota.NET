@@ -3,12 +3,12 @@ using System.Net;
 using System.Net.Http;
 using System.Text.Json.Nodes;
 using System.Threading;
-using OpenDotaDotNet.Routes.Constants;
-using OpenDotaDotNet.Routes.Heroes;
-using OpenDotaDotNet.Routes.Players;
-using OpenDotaDotNet.Routes.PublicMatches;
-using OpenDotaDotNet.Routes.Search;
-using OpenDotaDotNet.Utilities;
+using OpenDota.NET.Routes.Constants;
+using OpenDota.NET.Routes.Heroes;
+using OpenDota.NET.Routes.Players;
+using OpenDota.NET.Routes.PublicMatches;
+using OpenDota.NET.Routes.Search;
+using OpenDota.NET.Utilities;
 
 namespace OpenDota.NET.Tests;
 
@@ -60,7 +60,7 @@ public class RequestContractTests
     {
         var handler = new RecordingHandler("[]");
         using var requester = new Requester(new OpenDotaSettings(), handler);
-        var endpoint = new OpenDotaDotNet.Routes.Scenarios.ScenariosEndpoint(requester);
+        var endpoint = new OpenDota.NET.Routes.Scenarios.ScenariosEndpoint(requester);
 
         await endpoint.GetItemNamingAsync();
         Assert.Equal($"{endpoint.Url}/itemTimings", handler.Uri!.AbsoluteUri);
@@ -101,9 +101,9 @@ public class RequestContractTests
         using var requester = new Requester(new OpenDotaSettings(), handler);
         var filters = new PlayerEndpointParameters
         {
-            GameMode = OpenDotaDotNet.Enums.GameMode.Turbo,
-            LobbyType = OpenDotaDotNet.Enums.LobbyType.Ranked,
-            LaneRole = OpenDotaDotNet.Enums.LaneRole.Offlane
+            GameMode = OpenDota.NET.Enums.GameMode.Turbo,
+            LobbyType = OpenDota.NET.Enums.LobbyType.Ranked,
+            LaneRole = OpenDota.NET.Enums.LaneRole.Offlane
         };
 
         await new PlayersEndpoint(requester).GetPlayerMatchesAsync(42, filters);
@@ -137,7 +137,7 @@ public class RequestContractTests
     {
         var handler = new RecordingHandler(json);
         using var requester = new Requester(new OpenDotaSettings(), handler);
-        var result = await new ConstantsEndpoint(requester).GetConstantsAsync(OpenDotaDotNet.Routes.Constants.Enums.Constant.Heroes);
+        var result = await new ConstantsEndpoint(requester).GetConstantsAsync(OpenDota.NET.Routes.Constants.Enums.Constant.Heroes);
         Assert.Equal(array, result is JsonArray);
         Assert.NotNull(result);
     }
@@ -147,19 +147,19 @@ public class RequestContractTests
     {
         var options = new OpenDotaSettings();
         using var leagueRequester = new Requester(options, new RecordingHandler("""{"leagueid":15728,"name":"The International"}"""));
-        var league = await new OpenDotaDotNet.Routes.League.LeagueEndpoint(leagueRequester).GetLeagueAsync(15728);
+        var league = await new OpenDota.NET.Routes.Leagues.LeagueEndpoint(leagueRequester).GetLeagueAsync(15728);
         Assert.Equal(15728, league!.LeagueId);
 
         using var matchesRequester = new Requester(options, new RecordingHandler("""[{"match_id":7406531302,"radiant_team_name":"Team"}]"""));
-        var matches = await new OpenDotaDotNet.Routes.League.LeagueEndpoint(matchesRequester).GetLeagueMatchesAsync(15728);
+        var matches = await new OpenDota.NET.Routes.Leagues.LeagueEndpoint(matchesRequester).GetLeagueMatchesAsync(15728);
         Assert.Equal("Team", Assert.Single(matches!).RadiantTeamName);
 
         using var idsRequester = new Requester(options, new RecordingHandler("""[7406531302,"7406482053"]"""));
-        var ids = await new OpenDotaDotNet.Routes.League.LeagueEndpoint(idsRequester).GetLeagueMatchIdsAsync(15728);
+        var ids = await new OpenDota.NET.Routes.Leagues.LeagueEndpoint(idsRequester).GetLeagueMatchIdsAsync(15728);
         Assert.Equal(new long[] { 7406531302, 7406482053 }, ids);
 
         using var teamsRequester = new Requester(options, new RecordingHandler("""[{"team_id":42}]"""));
-        var teams = await new OpenDotaDotNet.Routes.League.LeagueEndpoint(teamsRequester).GetLeagueTeamsAsync(15728);
+        var teams = await new OpenDota.NET.Routes.Leagues.LeagueEndpoint(teamsRequester).GetLeagueTeamsAsync(15728);
         Assert.Equal(42, Assert.Single(teams!).TeamId);
     }
 

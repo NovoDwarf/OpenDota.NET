@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet;
+namespace OpenDota.NET;
 
 // TODO: Implement PLAYERS BY RANK endpoint
 

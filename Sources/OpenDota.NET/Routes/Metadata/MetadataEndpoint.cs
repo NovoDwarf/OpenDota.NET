@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Metadata;
+namespace OpenDota.NET.Routes.Metadata;
 
 /// <inheritdoc />
 public class MetadataEndpoint : IMetadataEndpoint

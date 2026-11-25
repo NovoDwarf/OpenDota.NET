@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.ProMatches;
+namespace OpenDota.NET.Routes.ProMatches;
 
 /// <summary>
 /// Represents pro matches endpoint.

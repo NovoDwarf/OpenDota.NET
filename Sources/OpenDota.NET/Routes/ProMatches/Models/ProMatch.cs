@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.ProMatches.Models;
+namespace OpenDota.NET.Routes.ProMatches.Models;
 
 /// <summary>A professional match.</summary>
 [UsedImplicitly]

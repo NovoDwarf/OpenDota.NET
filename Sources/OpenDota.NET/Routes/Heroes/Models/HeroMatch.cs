@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Heroes.Models;
+namespace OpenDota.NET.Routes.Heroes.Models;
 
 /// <summary>
 /// Contains information about a hero match.

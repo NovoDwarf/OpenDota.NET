@@ -1,4 +1,4 @@
-﻿namespace OpenDotaDotNet.Routes.Rankings.Models;
+﻿namespace OpenDota.NET.Routes.Rankings.Models;
 
 /// <summary>
 /// Represents a ranking player.

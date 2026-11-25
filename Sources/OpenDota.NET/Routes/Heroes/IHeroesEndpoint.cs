@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Heroes;
+namespace OpenDota.NET.Routes.Heroes;
 
 /// <summary>
 /// Represents a heroes endpoint. 

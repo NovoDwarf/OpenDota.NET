@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.FindMatches;
+namespace OpenDota.NET.Routes.FindMatches;
 
 /// <inheritdoc />
 public class FindMatchesEndpoint : IFindMatchesEndpoint

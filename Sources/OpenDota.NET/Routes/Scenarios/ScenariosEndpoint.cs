@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Scenarios;
+namespace OpenDota.NET.Routes.Scenarios;
 
 /// <inheritdoc />
 [UsedImplicitly]

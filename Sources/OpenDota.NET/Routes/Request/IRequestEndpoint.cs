@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Request;
+namespace OpenDota.NET.Routes.Request;
 
 /// <summary>
 /// Request endpoint.

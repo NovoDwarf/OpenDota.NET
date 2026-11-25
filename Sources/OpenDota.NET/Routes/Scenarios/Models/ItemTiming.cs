@@ -1,4 +1,4 @@
-﻿namespace OpenDotaDotNet.Routes.Scenarios.Models;
+﻿namespace OpenDota.NET.Routes.Scenarios.Models;
 
 /// <summary>
 /// Represents the timing of an item.

@@ -1,4 +1,4 @@
-﻿namespace OpenDotaDotNet.Extensions;
+﻿namespace OpenDota.NET.Extensions;
 
 /// <summary>
 /// Extension methods for <see cref="Enum"/>

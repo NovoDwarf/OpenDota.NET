@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Records.Models;
+namespace OpenDota.NET.Routes.Records.Models;
 
 /// <summary>A match record.</summary>
 [UsedImplicitly]

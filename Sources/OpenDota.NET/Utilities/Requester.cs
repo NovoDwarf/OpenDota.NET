@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Utilities;
+namespace OpenDota.NET.Utilities;
 
 /// <summary> Sends requests to the OpenDota API. </summary>
 public sealed class Requester : IDisposable

@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet;
+namespace OpenDota.NET;
 
 /// <summary>
 /// Represents the OpenDota.NET settings.

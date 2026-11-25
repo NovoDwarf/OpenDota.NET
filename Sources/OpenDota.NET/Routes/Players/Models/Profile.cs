@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Players.Models;
+namespace OpenDota.NET.Routes.Players.Models;
 
 /// <summary>
 /// Represents a player profile.

@@ -1,4 +1,4 @@
-﻿namespace OpenDotaDotNet.Routes.Scenarios.Enums;
+﻿namespace OpenDota.NET.Routes.Scenarios.Enums;
 
 /// <summary>
 /// Represents a scenario

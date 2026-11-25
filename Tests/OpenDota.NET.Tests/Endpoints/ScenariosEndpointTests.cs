@@ -1,5 +1,5 @@
-using OpenDotaDotNet.Enums;
-using OpenDotaDotNet.Routes.Scenarios.Enums;
+using OpenDota.NET.Enums;
+using OpenDota.NET.Routes.Scenarios.Enums;
 
 namespace OpenDota.NET.Tests.Endpoints;
 

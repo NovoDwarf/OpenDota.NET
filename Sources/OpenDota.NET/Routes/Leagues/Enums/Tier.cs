@@ -1,4 +1,4 @@
-﻿namespace OpenDotaDotNet.Routes.League.Enums;
+﻿namespace OpenDota.NET.Routes.Leagues.Enums;
 
 /// <summary>
 /// Represents a tier

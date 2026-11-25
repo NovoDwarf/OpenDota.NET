@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Metadata;
+namespace OpenDota.NET.Routes.Metadata;
 
 /// <summary>
 /// Metadata endpoint.

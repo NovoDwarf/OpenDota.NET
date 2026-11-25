@@ -1,4 +1,4 @@
-﻿namespace OpenDotaDotNet.Routes.Request.Models;
+﻿namespace OpenDota.NET.Routes.Request.Models;
 
 /// <summary>
 /// Represents a parse request.

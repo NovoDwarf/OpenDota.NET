@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.PublicMatches.Models;
+namespace OpenDota.NET.Routes.PublicMatches.Models;
 
 /// <summary>
 /// Represents a public match.

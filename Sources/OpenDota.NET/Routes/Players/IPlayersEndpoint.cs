@@ -1,4 +1,4 @@
-namespace OpenDotaDotNet.Routes.Players;
+namespace OpenDota.NET.Routes.Players;
 
 /// <summary>
 /// Represents players endpoint.
