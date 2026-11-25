@@ -33,12 +33,13 @@ jobs:
         run: |
           mkdir -p "$GITHUB_WORKSPACE/TestResults"
           status=0
-          dotnet run --project Tests/OpenDota.NET.Tests --configuration Release --framework net9.0 --no-build -- \
-            -maxThreads 2 -result-trx "$GITHUB_WORKSPACE/TestResults/net9.0.trx" || status=1
-          for framework in net10.0 net11.0; do
-            dotnet run --project Tests/OpenDota.NET.Tests --configuration Release --framework "$framework" --no-build -- \
-              -class OpenDota.NET.Tests.RequestContractTests -class OpenDota.NET.Tests.ApiResponseDeserializationTests \
-              -result-trx "$GITHUB_WORKSPACE/TestResults/$framework.trx" || status=1
+          dotnet run --project Tests/OpenDota.NET.IntegrationTests --configuration Release --framework net9.0 --no-build -- \
+            -maxThreads 2 -result-trx "$GITHUB_WORKSPACE/TestResults/integration-net9.0.trx" || status=1
+          for project in OpenDota.NET.Tests OpenDota.NET.Microsoft.DependencyInjection.Tests; do
+            for framework in net9.0 net10.0 net11.0; do
+              dotnet run --project "Tests/$project" --configuration Release --framework "$framework" --no-build -- \
+                -result-trx "$GITHUB_WORKSPACE/TestResults/$project-$framework.trx" || status=1
+            done
           done
           exit "$status"
       - name: Upload test results

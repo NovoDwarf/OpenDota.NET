@@ -40,7 +40,10 @@ jobs:
       - name: Pack library
         env:
           VERSION: ${{ steps.version.outputs.value }}
-        run: dotnet pack Sources/OpenDota.NET/OpenDota.NET.csproj -c Release -o "$GITHUB_WORKSPACE/packages" -p:Version="$VERSION" -p:GeneratePackageOnBuild=false -p:ContinuousIntegrationBuild=true
+        run: |
+          for project in OpenDota.NET OpenDota.NET.Microsoft.DependencyInjection; do
+            dotnet pack "Sources/$project/$project.csproj" -c Release -o "$GITHUB_WORKSPACE/packages" -p:Version="$VERSION" -p:GeneratePackageOnBuild=false -p:ContinuousIntegrationBuild=true
+          done
       - uses: actions/upload-artifact@v4
         with:
           name: release-packages
