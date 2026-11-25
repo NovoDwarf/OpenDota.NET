@@ -1,11 +1,29 @@
-﻿namespace OpenDotaDotNet.Routes.Search;
+namespace OpenDotaDotNet.Routes.Search;
 
 /// <inheritdoc />
-public class SearchEndpoint(Requester requester) : ISearchEndpoint
+[UsedImplicitly]
+public class SearchEndpoint : ISearchEndpoint
 {
+	private readonly Requester _requester;
+
 	/// <inheritdoc />
-	public Task<List<PlayerResponse>?> GetPlayersByNameAsync(string personaName) =>
-		requester.GetResponseAsync<List<PlayerResponse>>(
-			"search",
-			[$"q={personaName}"]);
+	public SearchEndpoint(Requester requester)
+	{
+		_requester = requester;
+	}
+
+	/// <inheritdoc />
+	public string Endpoint => "search";
+
+	/// <inheritdoc />
+	public string Url => new Uri(baseUri: _requester.BaseAddress, relativeUri: Endpoint).AbsoluteUri;
+
+
+	/// <inheritdoc />
+	public Task<List<PlayerResponse>?> GetPlayersByNameAsync(string personaName)
+	{
+		return _requester.GetResponseAsync<List<PlayerResponse>>(
+			url: Endpoint,
+			queryParameters: [$"q={personaName}"]);
+	}
 }

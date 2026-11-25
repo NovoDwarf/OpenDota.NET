@@ -3,6 +3,7 @@
 /// <summary>
 /// Represents a ranking player.
 /// </summary>
+[UsedImplicitly]
 public class RankingPlayer
 {
 	/// <summary>

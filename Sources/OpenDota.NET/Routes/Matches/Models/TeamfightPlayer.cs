@@ -1,21 +1,22 @@
-﻿namespace OpenDotaDotNet.Routes.Matches.Models;
+namespace OpenDotaDotNet.Routes.Matches.Models;
 
 /// <summary>
 /// Represents a teamfight player
 /// </summary>
+[PublicAPI]
 public class TeamfightPlayer
 {
 	/// <summary>
 	/// Gets a dictionary of the position where the hero died? Only has value if deaths is greater than 0
 	/// </summary>
 	[JsonPropertyName("deaths_pos")]
-	public Dictionary<string, Dictionary<string, int>> DeathsPos { get; init; } = new();
+	public Dictionary<string, Dictionary<string, int>> DeathsPos { get; init; } = [];
 
 	/// <summary>
 	/// Gets a dictionary of the name of abilities used and how many times they were used
 	/// </summary>
 	[JsonPropertyName("ability_uses")]
-	public Dictionary<string, int> AbilityUses { get; init; } = new();
+	public Dictionary<string, int> AbilityUses { get; init; } = [];
 
 	// TODO: No value is returned for this param
 	// [JsonPropertyName("ability_targets")]
@@ -25,13 +26,13 @@ public class TeamfightPlayer
 	/// Gets a dictionary of the name of items used and how many times they were used
 	/// </summary>
 	[JsonPropertyName("item_uses")]
-	public Dictionary<string, long> ItemUses { get; init; } = new();
+	public Dictionary<string, long> ItemUses { get; init; } = [];
 
 	/// <summary>
 	/// Gets a dictionary of the heroes killed and how many times they were killed
 	/// </summary>
 	[JsonPropertyName("killed")]
-	public Dictionary<string, long> Killed { get; init; } = new();
+	public Dictionary<string, long> Killed { get; init; } = [];
 
 	/// <summary>
 	/// Gets how many deaths the player got during the teamfight

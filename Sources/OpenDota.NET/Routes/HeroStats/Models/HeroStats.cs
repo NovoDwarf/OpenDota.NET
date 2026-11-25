@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.HeroStats.Models;
+namespace OpenDotaDotNet.Routes.HeroStats.Models;
 
 /// <summary>
 /// Represents hero stats.
 /// </summary>
+[PublicAPI]
 public class HeroStats
 {
 	/// <summary>

@@ -3,6 +3,7 @@
 /// <summary>
 /// Represents a player group.
 /// </summary>
+[UsedImplicitly]
 public class Pgroup
 {
 	/// <summary>

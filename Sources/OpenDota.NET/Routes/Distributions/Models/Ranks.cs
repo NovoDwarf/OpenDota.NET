@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Distributions.Models;
+namespace OpenDotaDotNet.Routes.Distributions.Models;
 
 /// <summary>
 /// Represents ranks.
 /// </summary>
+[PublicAPI]
 public class Ranks
 {
 	/// <summary>

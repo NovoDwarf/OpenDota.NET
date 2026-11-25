@@ -3,6 +3,7 @@
 /// <summary>
 /// Represents a parse request state.
 /// </summary>
+[UsedImplicitly]
 public class ParseRequestState
 {
 	/// <summary>
@@ -15,7 +16,7 @@ public class ParseRequestState
 	/// Gets the type of the parse request.
 	/// </summary>
 	[JsonPropertyName("type")]
-	public string Type { get; init; }
+	public string Type { get; init; } = string.Empty;
 
 	/// <summary>
 	/// Gets the timestamp of the parse request.

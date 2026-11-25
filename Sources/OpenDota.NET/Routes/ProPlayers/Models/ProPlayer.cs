@@ -1,5 +1,7 @@
-﻿namespace OpenDotaDotNet.Routes.ProPlayers.Models;
+namespace OpenDotaDotNet.Routes.ProPlayers.Models;
 
+/// <summary>A professional player.</summary>
+[UsedImplicitly]
 public class ProPlayer
 {
 	/// <summary>
@@ -126,17 +128,17 @@ public class ProPlayer
 	/// Gets a value indicating whether the roster lock is active.
 	/// </summary>
 	[JsonPropertyName("is_locked")]
-	public bool IsLocked { get; init; }
+	public bool? IsLocked { get; init; }
 
 	/// <summary>
 	/// Gets a value indicating whether the player is professional or not.
 	/// </summary>
 	[JsonPropertyName("is_pro")]
-	public bool IsPro { get; init; }
+	public bool? IsPro { get; init; }
 
 	/// <summary>
 	/// When the roster lock will end
 	/// </summary>
 	[JsonPropertyName("locked_until")]
-	public object? LockedUntil { get; init; }
+	public bool? LockedUntil { get; init; }
 }

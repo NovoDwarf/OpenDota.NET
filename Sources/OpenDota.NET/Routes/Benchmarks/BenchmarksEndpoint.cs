@@ -1,11 +1,28 @@
-﻿namespace OpenDotaDotNet.Routes.Benchmarks;
+namespace OpenDotaDotNet.Routes.Benchmarks;
 
 /// <inheritdoc />
-public class BenchmarksEndpoint(Requester requester) : IBenchmarkEndpoint
+public class BenchmarksEndpoint : IBenchmarkEndpoint
 {
+	private readonly Requester _requester;
+
 	/// <inheritdoc />
-	public Task<Benchmark?> GetHeroBenchmarkAsync(int heroId) =>
-		requester.GetResponseAsync<Benchmark>(
-			"benchmarks",
-			[$"hero_id={heroId}"]);
+	public BenchmarksEndpoint(Requester requester)
+	{
+		_requester = requester;
+	}
+
+	/// <inheritdoc />
+	public string Endpoint => "benchmarks";
+
+	/// <inheritdoc />
+	public string Url => new Uri(baseUri: _requester.BaseAddress, relativeUri: Endpoint).AbsoluteUri;
+
+
+	/// <inheritdoc />
+	public Task<Benchmark?> GetHeroBenchmarkAsync(int heroId)
+	{
+		return _requester.GetResponseAsync<Benchmark>(
+			url: Endpoint,
+			queryParameters: [$"hero_id={heroId}"]);
+	}
 }

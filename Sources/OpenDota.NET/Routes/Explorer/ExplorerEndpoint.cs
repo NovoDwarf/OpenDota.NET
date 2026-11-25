@@ -1,11 +1,28 @@
-﻿namespace OpenDotaDotNet.Routes.Explorer;
+namespace OpenDotaDotNet.Routes.Explorer;
 
 /// <inheritdoc />
-public class ExplorerEndpoint(Requester requester) : IExplorerEndpoint
+public class ExplorerEndpoint : IExplorerEndpoint
 {
+	private readonly Requester _requester;
+
 	/// <inheritdoc />
-	public Task<JsonObject?> GetFromExplorerAsync(string query) =>
-		requester.GetResponseAsync<JsonObject>(
-			"explorer",
-			[$"sql={query}"]);
+	public ExplorerEndpoint(Requester requester)
+	{
+		_requester = requester;
+	}
+
+	/// <inheritdoc />
+	public string Endpoint => "explorer";
+
+	/// <inheritdoc />
+	public string Url => new Uri(baseUri: _requester.BaseAddress, relativeUri: Endpoint).AbsoluteUri;
+
+
+	/// <inheritdoc />
+	public Task<JsonObject?> GetFromExplorerAsync(string query)
+	{
+		return _requester.GetResponseAsync<JsonObject>(
+			url: Endpoint,
+			queryParameters: [$"sql={query}"]);
+	}
 }

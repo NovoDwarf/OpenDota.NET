@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Health.Models;
+namespace OpenDotaDotNet.Routes.Health.Models;
 
 /// <summary>
 /// Represents a service health.
 /// </summary>
+[PublicAPI]
 public class ServiceHealth
 {
 	/// <summary>

@@ -3,6 +3,7 @@
 /// <summary>
 /// Represents a team match.
 /// </summary>
+[UsedImplicitly]
 public class TeamMatch
 {
 	/// <summary>

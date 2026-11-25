@@ -1,9 +1,27 @@
-﻿namespace OpenDotaDotNet.Routes.Records;
+namespace OpenDotaDotNet.Routes.Records;
 
 /// <inheritdoc />
-public class RecordsEndpoint(Requester requester) : IRecordsEndpoint
+[UsedImplicitly]
+public class RecordsEndpoint : IRecordsEndpoint
 {
+	private readonly Requester _requester;
+
 	/// <inheritdoc />
-	public Task<List<Record>?> GetRecordsByFieldAsync(Field field) =>
-		requester.GetResponseAsync<List<Record>>($"records/{field.ToSnakeCase()}");
+	public RecordsEndpoint(Requester requester)
+	{
+		_requester = requester;
+	}
+
+	/// <inheritdoc />
+	public string Endpoint => "records";
+
+	/// <inheritdoc />
+	public string Url => new Uri(baseUri: _requester.BaseAddress, relativeUri: Endpoint).AbsoluteUri;
+
+
+	/// <inheritdoc />
+	public Task<List<Record>?> GetRecordsByFieldAsync(Field field)
+	{
+		return _requester.GetResponseAsync<List<Record>>($"{Endpoint}/{field.ToSnakeCase()}");
+	}
 }

@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Benchmarks.Models;
+namespace OpenDotaDotNet.Routes.Benchmarks.Models;
 
 /// <summary>
 /// Represents a benchmark.
 /// </summary>
+[PublicAPI]
 public class Benchmark
 {
 	/// <summary>
@@ -12,7 +13,7 @@ public class Benchmark
 	public long HeroId { get; init; }
 
 	/// <summary>
-	/// Gets the result.
+	/// Gets the result of the benchmark. See <see cref="BenchmarkResult"/>.
 	/// </summary>
 	[JsonPropertyName("result")]
 	public BenchmarkResult Result { get; init; } = new();

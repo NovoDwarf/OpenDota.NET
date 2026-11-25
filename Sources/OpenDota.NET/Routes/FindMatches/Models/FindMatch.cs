@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.FindMatches.Models;
+namespace OpenDotaDotNet.Routes.FindMatches.Models;
 
 /// <summary>
 /// Represents a single match.
 /// </summary>
+[PublicAPI]
 public class FindMatch
 {
 	/// <summary>

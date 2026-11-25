@@ -1,16 +1,35 @@
-﻿namespace OpenDotaDotNet.Routes.Request;
+namespace OpenDotaDotNet.Routes.Request;
 
 /// <inheritdoc />
-public class RequestEndpoint(Requester requester) : IRequestEndpoint
+[UsedImplicitly]
+public class RequestEndpoint : IRequestEndpoint
 {
+	private readonly Requester _requester;
+
 	/// <inheritdoc />
-	public Task<ParseRequestState?> GetParseRequestStateAsync(long jobId) =>
-		requester.GetResponseAsync<ParseRequestState>($"request/{jobId}");
+	public RequestEndpoint(Requester requester)
+	{
+		_requester = requester;
+	}
+
+	/// <inheritdoc />
+	public string Endpoint => "request";
+
+	/// <inheritdoc />
+	public string Url => new Uri(baseUri: _requester.BaseAddress, relativeUri: Endpoint).AbsoluteUri;
+
+
+	/// <inheritdoc />
+	public Task<ParseRequestState?> GetParseRequestStateAsync(long jobId)
+	{
+		return _requester.GetResponseAsync<ParseRequestState>($"{Endpoint}/{jobId}");
+	}
 
 	/// <inheritdoc />
 	public async Task<ParseRequest?> SubmitNewParseRequestAsync(long matchId)
 	{
-		var response = await requester.PostRequestAsync($"request/{matchId}");
+		using var response = await _requester.PostRequestAsync($"{Endpoint}/{matchId}");
+
 		response.EnsureSuccessStatusCode();
 
 		var content = await response.Content.ReadAsStringAsync();

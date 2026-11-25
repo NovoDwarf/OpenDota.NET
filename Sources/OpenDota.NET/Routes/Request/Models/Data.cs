@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Request.Models;
+namespace OpenDotaDotNet.Routes.Request.Models;
 
 /// <summary>
 /// Represents match data.
 /// </summary>
+[UsedImplicitly]
 public class Data
 {
 	/// <summary>
@@ -33,11 +34,11 @@ public class Data
 	/// Gets the player group.
 	/// </summary>
 	[JsonPropertyName("pgroup")]
-	public Dictionary<string, Pgroup> Pgroup { get; init; } = new();
+	public Dictionary<string, Pgroup> Pgroup { get; init; } = [];
 
 	/// <summary>
 	/// Gets the player's ability upgrades.
 	/// </summary>
 	[JsonPropertyName("ability_upgrades")]
-	public List<object> AbilityUpgrades { get; init; } = new();
+	public List<object> AbilityUpgrades { get; init; } = [];
 }

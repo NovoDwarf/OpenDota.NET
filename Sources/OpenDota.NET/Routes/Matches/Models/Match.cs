@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Matches.Models;
+namespace OpenDotaDotNet.Routes.Matches.Models;
 
 /// <summary>
 /// Represents a match
 /// </summary>
+[PublicAPI]
 public class Match
 {
 	/// <summary>
@@ -39,7 +40,7 @@ public class Match
 	/// Gets cosmetics
 	/// </summary>
 	[JsonPropertyName("cosmetics")]
-	public Dictionary<string, long> Cosmetics { get; init; } = new();
+	public Dictionary<string, long> Cosmetics { get; init; } = [];
 
 	/// <summary>
 	/// Gets the number of kills of dire team
@@ -82,7 +83,7 @@ public class Match
 	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/game_mode.json.
 	/// </summary>
 	[JsonPropertyName("game_mode")]
-	public int GameMode { get; init; }
+	public GameMode GameMode { get; init; }
 
 	/// <summary>
 	/// Gets number of human players in the game
@@ -101,7 +102,7 @@ public class Match
 	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/lobby_type.json.
 	/// </summary>
 	[JsonPropertyName("lobby_type")]
-	public long LobbyType { get; init; }
+	public LobbyType LobbyType { get; init; }
 
 	/// <summary>
 	/// Gets the match sequence number
@@ -257,13 +258,13 @@ public class Match
 	/// Gets word counts of the all chat messages in the player's games (string - message, int - amount of times used).
 	/// </summary>
 	[JsonPropertyName("all_word_counts")]
-	public Dictionary<string, int> AllWordCounts { get; init; } = new();
+	public Dictionary<string, int> AllWordCounts { get; init; } = [];
 
 	/// <summary>
 	/// Gets word counts of the player's all chat messages
 	/// </summary>
 	[JsonPropertyName("my_word_counts")]
-	public Dictionary<string, int> MyWordCounts { get; init; } = new();
+	public Dictionary<string, int> MyWordCounts { get; init; } = [];
 
 	/// <summary>
 	/// Gets the maximum gold advantage of the player's team if they lost the match.

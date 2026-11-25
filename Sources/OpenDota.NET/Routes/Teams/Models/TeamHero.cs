@@ -3,6 +3,7 @@
 /// <summary>
 /// Represents a team hero.
 /// </summary>
+[UsedImplicitly]
 public class TeamHero
 {
 	/// <summary>
@@ -15,7 +16,7 @@ public class TeamHero
 	/// Gets hero name, e.g. 'Anti-Mage'.
 	/// </summary>
 	[JsonPropertyName("localized_name")]
-	public string LocalizedName { get; init; } 
+	public string LocalizedName { get; init; } = string.Empty;
 
 	/// <summary>
 	/// Gets number of games played.

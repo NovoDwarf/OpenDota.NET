@@ -1,16 +1,23 @@
-﻿namespace OpenDotaDotNet.Routes.PublicMatches;
+namespace OpenDotaDotNet.Routes.PublicMatches;
 
 /// <summary>
 /// Public matches endpoint.
 /// </summary>
+[PublicAPI]
 public interface IPublicMatchesEndpoint
 {
+	/// <summary>The base path of this endpoint, relative to the API address.</summary>
+	public string Endpoint { get; }
+
+	/// <summary>The absolute URL of the endpoint, without query parameters.</summary>
+	public string Url { get; }
+
 	/// <summary>
 	/// Get list of randomly sampled public matches.
 	/// </summary>
-	/// <param name="mmrAscending">Order by MMR ascending.</param>
-	/// <param name="mmrDescending">Order by MMR descending.</param>
+	/// <param name="minRank">Minimum rank tier.</param>
+	/// <param name="maxRank">Maximum rank tier.</param>
 	/// <param name="lessThanMatchId">Get matches with a match ID lower than this value.</param>
 	/// <returns>List of randomly sampled public matches.</returns>
-	Task<List<PublicMatch>?> GetPublicMatchesAsync(int? mmrAscending = null, int? mmrDescending = null, long? lessThanMatchId = null);
+	public Task<List<PublicMatch>?> GetPublicMatchesAsync(int? minRank = null, int? maxRank = null, long? lessThanMatchId = null);
 }

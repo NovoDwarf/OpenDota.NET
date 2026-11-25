@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Matches.Models;
+namespace OpenDotaDotNet.Routes.Matches.Models;
 
 /// <summary>
 /// Represents an additional unit
 /// </summary>
+[PublicAPI]
 public class AdditionalUnit
 {
 	/// <summary>

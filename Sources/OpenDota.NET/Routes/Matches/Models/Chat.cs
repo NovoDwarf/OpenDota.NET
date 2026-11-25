@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Matches.Models;
+namespace OpenDotaDotNet.Routes.Matches.Models;
 
 /// <summary>
 /// Represents a chat
 /// </summary>
+[PublicAPI]
 public class Chat
 {
 	/// <summary>
@@ -36,6 +37,7 @@ public class Chat
 	public long PlayerSlot { get; init; }
 
 	// Gets name of the player who sent the message
+	/// <summary>The unit associated with the chat event.</summary>
 	[JsonPropertyName("unit")]
 	public string Unit { get; init; } = string.Empty;
 }

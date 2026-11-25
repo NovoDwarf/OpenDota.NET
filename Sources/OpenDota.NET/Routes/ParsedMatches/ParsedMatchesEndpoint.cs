@@ -1,11 +1,28 @@
-﻿namespace OpenDotaDotNet.Routes.ParsedMatches;
+namespace OpenDotaDotNet.Routes.ParsedMatches;
 
 /// <inheritdoc />
-public class ParsedMatchesEndpoint(Requester requester) : IParsedMatchesEndpoint
+public class ParsedMatchesEndpoint : IParsedMatchesEndpoint
 {
+	private readonly Requester _requester;
+
 	/// <inheritdoc />
-	public Task<ParsedMatch?> GetParsedMatchesAsync(long lessThenMatchId) =>
-		requester.GetResponseAsync<ParsedMatch>(
-			"parsedMatches",
-			[$"less_then_match_id={lessThenMatchId}"]);
+	public ParsedMatchesEndpoint(Requester requester)
+	{
+		_requester = requester;
+	}
+
+	/// <inheritdoc />
+	public string Endpoint => "parsedMatches";
+
+	/// <inheritdoc />
+	public string Url => new Uri(baseUri: _requester.BaseAddress, relativeUri: Endpoint).AbsoluteUri;
+
+
+	/// <inheritdoc />
+	public Task<ParsedMatch?> GetParsedMatchesAsync(long lessThenMatchId)
+	{
+		return _requester.GetResponseAsync<ParsedMatch>(
+			url: Endpoint,
+			queryParameters: [$"less_then_match_id={lessThenMatchId}"]);
+	}
 }

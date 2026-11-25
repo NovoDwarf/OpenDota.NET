@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Health.Models;
+namespace OpenDotaDotNet.Routes.Health.Models;
 
 /// <summary>
 /// Represents service usage.
 /// </summary>
+[PublicAPI]
 public class ServiceUsage
 {
 	/// <summary>
@@ -18,6 +19,12 @@ public class ServiceUsage
 	[JsonPropertyName("threshold")]
 
 	public long? Threshold { get; init; }
+
+	/// <summary>
+	/// Gets the current limit.
+	/// </summary>
+	[JsonPropertyName("limit")]
+	public long? Limit { get; init; }
 
 	/// <summary>
 	/// Gets the timestamp.

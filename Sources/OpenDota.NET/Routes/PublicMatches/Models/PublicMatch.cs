@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.PublicMatches.Models;
+namespace OpenDotaDotNet.Routes.PublicMatches.Models;
 
 /// <summary>
 /// Represents a public match.
 /// </summary>
+[UsedImplicitly]
 public class PublicMatch
 {
 	/// <summary>
@@ -21,7 +22,7 @@ public class PublicMatch
 	/// Gets boolean corresponding to whether radiant won.
 	/// </summary>
 	[JsonPropertyName("radiant_win")]
-	public bool RadiantWin { get; init; }
+	public bool? RadiantWin { get; init; }
 
 	/// <summary>
 	/// Gets start time of match.
@@ -40,14 +41,14 @@ public class PublicMatch
 	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/lobby_type.json.
 	/// </summary>
 	[JsonPropertyName("lobby_type")]
-	public int LobbyType { get; init; }
+	public LobbyType LobbyType { get; init; }
 
 	/// <summary>
 	/// Gets game mode played.
 	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/game_mode.json.
 	/// </summary>
 	[JsonPropertyName("game_mode")]
-	public int GameMode { get; init; }
+	public GameMode GameMode { get; init; }
 
 	/// <summary>
 	/// Gets average rank tier of players in the match.
@@ -71,11 +72,11 @@ public class PublicMatch
 	/// Gets a list of player IDs in the radiant team.
 	/// </summary>
 	[JsonPropertyName("radiant_team")]
-	public int[] RadiantTeam { get; init; }
+	public int[] RadiantTeam { get; init; } = [];
 
 	/// <summary>
 	/// Gets a list of player IDs in the dire team.
 	/// </summary>
 	[JsonPropertyName("dire_team")]
-	public int[] DireTeam { get; init; }
+	public int[] DireTeam { get; init; } = [];
 }

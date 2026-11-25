@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Matches.Models;
+namespace OpenDotaDotNet.Routes.Matches.Models;
 
 /// <summary>
 /// Represents a max hero hit.
 /// </summary>
+[PublicAPI]
 public class MaxHeroHit
 {
 	/// <summary>

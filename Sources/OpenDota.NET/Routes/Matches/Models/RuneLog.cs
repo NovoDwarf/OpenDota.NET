@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Matches.Models;
+namespace OpenDotaDotNet.Routes.Matches.Models;
 
 /// <summary>
 /// Represents a rune log
 /// </summary>
+[PublicAPI]
 public class RuneLog
 {
 	/// <summary>

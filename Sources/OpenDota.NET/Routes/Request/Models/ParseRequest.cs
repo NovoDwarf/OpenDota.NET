@@ -3,6 +3,7 @@
 /// <summary>
 /// Represents a parse request.
 /// </summary>
+[UsedImplicitly]
 public class ParseRequest
 {
 	/// <summary>

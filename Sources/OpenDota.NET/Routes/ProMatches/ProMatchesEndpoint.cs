@@ -1,20 +1,38 @@
-﻿namespace OpenDotaDotNet.Routes.ProMatches;
+namespace OpenDotaDotNet.Routes.ProMatches;
 
 /// <inheritdoc />
-public class ProMatchesEndpoint(Requester requester) : IProMatchEndpoint
+[UsedImplicitly]
+public class ProMatchesEndpoint : IProMatchEndpoint
 {
+	private readonly Requester _requester;
+
 	/// <inheritdoc />
-	public Task<List<ProMatch>?> GetProMatchesAsync(long? lessThanMatchId = null) =>
-		requester.GetResponseAsync<List<ProMatch>>(
-			"proMatches",
-			GetArguments(lessThanMatchId));
+	public ProMatchesEndpoint(Requester requester)
+	{
+		_requester = requester;
+	}
+
+	/// <inheritdoc />
+	public string Endpoint => "proMatches";
+
+	/// <inheritdoc />
+	public string Url => new Uri(baseUri: _requester.BaseAddress, relativeUri: Endpoint).AbsoluteUri;
+
+
+	/// <inheritdoc />
+	public Task<List<ProMatch>?> GetProMatchesAsync(long? lessThanMatchId = null)
+	{
+		return _requester.GetResponseAsync<List<ProMatch>>(
+			url: Endpoint,
+			queryParameters: GetArguments(lessThanMatchId: lessThanMatchId));
+	}
 
 	private static List<string> GetArguments(long? lessThanMatchId = null)
 	{
 		var addedArguments = new List<string>();
 
 		if (lessThanMatchId != null)
-			addedArguments.Add($"less_than_match_id={lessThanMatchId}");
+			addedArguments.Add(item: $"less_than_match_id={lessThanMatchId}");
 
 		return addedArguments;
 	}

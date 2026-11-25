@@ -1,13 +1,32 @@
-﻿namespace OpenDotaDotNet.Routes.Constants;
+namespace OpenDotaDotNet.Routes.Constants;
 
 /// <inheritdoc />
-public class ConstantsEndpoint(Requester requester) : IConstantsEndpoint
+public class ConstantsEndpoint : IConstantsEndpoint
 {
-	/// <inheritdoc />
-	public Task<JsonObject?> GetConstantsAsync(Constant resource) =>
-		requester.GetResponseAsync<JsonObject>($"constants/{resource.ToSnakeCase()}");
+	private readonly Requester _requester;
 
 	/// <inheritdoc />
-	public Task<List<string>?> GetConstantsAsync() =>
-		requester.GetResponseAsync<List<string>>("constants");
+	public ConstantsEndpoint(Requester requester)
+	{
+		_requester = requester;
+	}
+
+	/// <inheritdoc />
+	public string Endpoint => "constants";
+
+	/// <inheritdoc />
+	public string Url => new Uri(baseUri: _requester.BaseAddress, relativeUri: Endpoint).AbsoluteUri;
+
+
+	/// <inheritdoc />
+	public Task<JsonNode?> GetConstantsAsync(Constant resource)
+	{
+		return _requester.GetResponseAsync<JsonNode>($"{Endpoint}/{resource.ToSnakeCase()}");
+	}
+
+	/// <inheritdoc />
+	public Task<List<string>?> GetConstantsAsync()
+	{
+		return _requester.GetResponseAsync<List<string>>(Endpoint);
+	}
 }

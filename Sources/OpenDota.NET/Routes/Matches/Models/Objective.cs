@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Matches.Models;
+namespace OpenDotaDotNet.Routes.Matches.Models;
 
 /// <summary>
 /// Contains information about an objective.
 /// </summary>
+[PublicAPI]
 public class Objective
 {
 	/// <summary>

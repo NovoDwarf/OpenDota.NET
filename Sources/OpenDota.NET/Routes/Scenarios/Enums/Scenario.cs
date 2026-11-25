@@ -8,25 +8,35 @@ public enum Scenario
 	/// <summary>
 	/// No scenario only for internal usage
 	/// </summary>
-	[JsonIgnore] None = 0,
+	[JsonIgnore]
+	[UsedImplicitly]
+	None = 0,
 
 	/// <summary>
 	/// Courier kill
 	/// </summary>
-	[JsonPropertyName("courier_kill")] CourierKill = 1,
+	[JsonPropertyName("courier_kill")]
+	[UsedImplicitly]
+	CourierKill = 1,
 
 	/// <summary>
 	/// First blood
 	/// </summary>
-	[JsonPropertyName("first_blood")] FirstBlood = 2,
+	[JsonPropertyName("first_blood")]
+	[UsedImplicitly]
+	FirstBlood = 2,
 
 	/// <summary>
 	/// Neg chat 1 min
 	/// </summary>
-	[JsonPropertyName("neg_chat_1min")] NegChat1Min = 3,
+	[JsonPropertyName("neg_chat_1min")]
+	[UsedImplicitly]
+	NegChat1Min = 3,
 
 	/// <summary>
 	/// Pos chat 1 min
 	/// </summary>
-	[JsonPropertyName("pos_chat_1min")] PosChat1Min = 4
+	[JsonPropertyName("pos_chat_1min")]
+	[UsedImplicitly]
+	PosChat1Min = 4
 }

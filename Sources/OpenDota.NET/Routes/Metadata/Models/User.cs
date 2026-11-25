@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Metadata.Models;
+namespace OpenDotaDotNet.Routes.Metadata.Models;
 
 /// <summary>
 /// Represents the user.
 /// </summary>
+[PublicAPI]
 public class User
 {
 	/// <summary>

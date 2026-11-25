@@ -3,6 +3,7 @@
 /// <summary>
 /// Represents a team player.
 /// </summary>
+[UsedImplicitly]
 public class TeamPlayer
 {
 	/// <summary>

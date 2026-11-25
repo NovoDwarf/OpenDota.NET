@@ -1,41 +1,63 @@
-﻿namespace OpenDotaDotNet.Routes.Scenarios;
+namespace OpenDotaDotNet.Routes.Scenarios;
 
 /// <inheritdoc />
-public class ScenariosEndpoint(Requester requester) : IScenariosEndpoint
+[UsedImplicitly]
+public class ScenariosEndpoint : IScenariosEndpoint
 {
-	/// <inheritdoc />
-	public Task<List<ItemTiming>?> GetItemNamingAsync(string? item = null, int? heroId = null) =>
-		requester.GetResponseAsync<List<ItemTiming>>(
-			"scenarios/itemTimings",
-			GetArguments(item, heroId));
+	private readonly Requester _requester;
 
 	/// <inheritdoc />
-	public Task<List<LaneRoles>?> GetLaneRolesAsync(int? laneRole = null, int? heroId = null) =>
-		requester.GetResponseAsync<List<LaneRoles>>(
-			"scenarios/laneRoles",
-			GetArguments(null, heroId, laneRole));
+	public ScenariosEndpoint(Requester requester)
+	{
+		_requester = requester;
+	}
 
 	/// <inheritdoc />
-	public Task<List<TeamScenario>?> GetMiscTeamScenariosAsync(Scenario? scenario = null) =>
-		requester.GetResponseAsync<List<TeamScenario>>(
-			"scenarios/misc",
-			GetArguments(null, null, null, scenario));
+	public string Endpoint => "scenarios";
 
-	private static List<string> GetArguments(string? item = null, int? heroId = null, int? laneRole = null, Scenario? scenario = null)
+	/// <inheritdoc />
+	public string Url => new Uri(baseUri: _requester.BaseAddress, relativeUri: Endpoint).AbsoluteUri;
+
+
+	/// <inheritdoc />
+	public Task<List<ItemTiming>?> GetItemNamingAsync(string? item = null, int? heroId = null)
+	{
+		return _requester.GetResponseAsync<List<ItemTiming>>(
+			url: $"{Endpoint}/itemTimings",
+			queryParameters: GetArguments(item: item, heroId: heroId));
+	}
+
+	/// <inheritdoc />
+	public Task<List<LaneRoles>?> GetLaneRolesAsync(LaneRole? laneRole = null, int? heroId = null)
+	{
+		return _requester.GetResponseAsync<List<LaneRoles>>(
+			url: $"{Endpoint}/laneRoles",
+			queryParameters: GetArguments(item: null, heroId: heroId, laneRole: laneRole));
+	}
+
+	/// <inheritdoc />
+	public Task<List<TeamScenario>?> GetMiscTeamScenariosAsync(Scenario? scenario = null)
+	{
+		return _requester.GetResponseAsync<List<TeamScenario>>(
+			url: $"{Endpoint}/misc",
+			queryParameters: GetArguments(item: null, heroId: null, laneRole: null, scenario: scenario));
+	}
+
+	private static List<string> GetArguments(string? item = null, int? heroId = null, LaneRole? laneRole = null, Scenario? scenario = null)
 	{
 		var addedArguments = new List<string>();
 
 		if (item != null)
-			addedArguments.Add($"item={item}");
+			addedArguments.Add(item: $"item={item}");
 
 		if (heroId != null)
-			addedArguments.Add($"hero_id={heroId}");
+			addedArguments.Add(item: $"hero_id={heroId}");
 
 		if (laneRole != null)
-			addedArguments.Add($"lane_role={laneRole}");
+			addedArguments.Add(item: $"lane_role={(int)laneRole.Value}");
 
 		if (scenario != null)
-			addedArguments.Add($"scenario={scenario.ToSnakeCase()}");
+			addedArguments.Add(item: $"scenario={scenario.ToSnakeCase()}");
 
 		return addedArguments;
 	}

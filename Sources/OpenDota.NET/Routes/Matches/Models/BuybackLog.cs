@@ -1,5 +1,7 @@
-﻿namespace OpenDotaDotNet.Routes.Matches.Models;
+namespace OpenDotaDotNet.Routes.Matches.Models;
 
+/// <summary>A buyback event.</summary>
+[PublicAPI]
 public class BuybackLog
 {
 	/// <summary>

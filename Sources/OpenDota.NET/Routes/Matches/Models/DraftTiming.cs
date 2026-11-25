@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Matches.Models;
+namespace OpenDotaDotNet.Routes.Matches.Models;
 
 /// <summary>
 /// Represents a draft timing
 /// </summary>
+[PublicAPI]
 public class DraftTiming
 {
 	/// <summary>

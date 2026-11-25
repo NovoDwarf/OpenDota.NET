@@ -3,6 +3,7 @@
 /// <summary>
 /// Represents a database schema.
 /// </summary>
+[UsedImplicitly]
 public class DatabaseSchema
 {
 	/// <summary>

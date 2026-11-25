@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Matches.Models;
+namespace OpenDotaDotNet.Routes.Matches.Models;
 
 /// <summary>
 /// Represeants a match player
 /// </summary>
+[PublicAPI]
 public class MatchPlayer
 {
 	/// <summary>
@@ -22,7 +23,7 @@ public class MatchPlayer
 	/// Gets object containing information on who the player used their abilities on
 	/// </summary>
 	[JsonPropertyName("ability_targets")]
-	public Dictionary<string, Dictionary<string, int>> AbilityTargets { get; init; } = new();
+	public Dictionary<string, Dictionary<string, int>> AbilityTargets { get; init; } = [];
 
 	/// <summary>
 	/// Gets a list describing how abilities were upgraded
@@ -34,7 +35,7 @@ public class MatchPlayer
 	/// Gets object containing information on how many times the played used their abilities
 	/// </summary>
 	[JsonPropertyName("ability_uses")]
-	public Dictionary<string, int> AbilityUses { get; init; } = new();
+	public Dictionary<string, int> AbilityUses { get; init; } = [];
 
 	/// <summary>
 	/// Gets account ID of the player.
@@ -46,7 +47,7 @@ public class MatchPlayer
 	/// Gets object containing information on how many and what type of actions the player issued to their hero
 	/// </summary>
 	[JsonPropertyName("actions")]
-	public Dictionary<string, long> Actions { get; init; } = new();
+	public Dictionary<string, long> Actions { get; init; } = [];
 
 	/// <summary>
 	/// Gets object containing information on additional units the player had under their control
@@ -106,31 +107,31 @@ public class MatchPlayer
 	/// Gets object containing information about damage dealt by the player to different units [unit,damage] 
 	/// </summary>
 	[JsonPropertyName("damage")]
-	public Dictionary<string, long> Damage { get; init; } = new();
+	public Dictionary<string, long> Damage { get; init; } = [];
 
 	/// <summary>
 	/// Gets object containing information about about the sources of this player's damage to heroes
 	/// </summary>
 	[JsonPropertyName("damage_inflictor")]
-	public Dictionary<string, int> DamageInflictor { get; init; } = new();
+	public Dictionary<string, int> DamageInflictor { get; init; } = [];
 
 	/// <summary>
 	/// Gets object containing information about the sources of damage received by this player from heroes
 	/// </summary>
 	[JsonPropertyName("damage_inflictor_received")]
-	public Dictionary<string, int> DamageInflictorReceived { get; init; } = new();
+	public Dictionary<string, int> DamageInflictorReceived { get; init; } = [];
 
 	/// <summary>
 	/// Gets object containing information about from whom the player took damage
 	/// </summary>
 	[JsonPropertyName("damage_taken")]
-	public Dictionary<string, int> DamageTaken { get; init; } = new();
+	public Dictionary<string, int> DamageTaken { get; init; } = [];
 
 	/// <summary>
 	/// Gets object containing information on how and how much damage the player dealt to other heroes
 	/// </summary>
 	[JsonPropertyName("damage_targets")]
-	public Dictionary<string, Dictionary<string, int>> DamageTargets { get; init; } = new();
+	public Dictionary<string, Dictionary<string, int>> DamageTargets { get; init; } = [];
 
 	/// <summary>
 	/// Gets number of deaths
@@ -172,7 +173,7 @@ public class MatchPlayer
 	/// Gets object containing information on how the player gainined gold over the course of the match
 	/// </summary>
 	[JsonPropertyName("gold_reasons")]
-	public Dictionary<string, int> GoldReasons { get; init; } = new();
+	public Dictionary<string, int> GoldReasons { get; init; } = [];
 
 	/// <summary>
 	/// Gets how much gold the player spent
@@ -202,7 +203,7 @@ public class MatchPlayer
 	/// Gets an object containing information on how many ticks of damages the hero inflicted with different spells and damage inflictors
 	/// </summary>
 	[JsonPropertyName("hero_hits")]
-	public Dictionary<string, int> HeroHits { get; init; } = new();
+	public Dictionary<string, int> HeroHits { get; init; } = [];
 
 	/// <summary>
 	/// Gets the ID value of the hero played.
@@ -250,25 +251,25 @@ public class MatchPlayer
 	/// Gets a dictionary containing information about how many times a player used items
 	/// </summary>
 	[JsonPropertyName("item_uses")]
-	public Dictionary<string, int> ItemUses { get; init; } = new();
+	public Dictionary<string, int> ItemUses { get; init; } = [];
 
 	/// <summary>
 	/// Gets a dictionary containing information about the player's killstreaks
 	/// </summary>
 	[JsonPropertyName("kill_streaks")]
-	public Dictionary<string, int> KillStreaks { get; init; } = new();
+	public Dictionary<string, int> KillStreaks { get; init; } = [];
 
 	/// <summary>
 	/// Gets a dictionary containing information about what units the player killed
 	/// </summary>
 	[JsonPropertyName("killed")]
-	public Dictionary<string, int> UnitsKilled { get; init; } = new();
+	public Dictionary<string, int> UnitsKilled { get; init; } = [];
 
 	/// <summary>
 	/// Gets a dictionary containing information about who killed the player
 	/// </summary>
 	[JsonPropertyName("killed_by")]
-	public Dictionary<string, int> KilledBy { get; init; } = new();
+	public Dictionary<string, int> KilledBy { get; init; } = [];
 
 	/// <summary>
 	/// Gets a number of kills
@@ -286,7 +287,7 @@ public class MatchPlayer
 	/// Gets a object containing information on lane position
 	/// </summary>
 	[JsonPropertyName("lane_pos")]
-	public Dictionary<string, Dictionary<string, int>> LanePos { get; init; } = new();
+	public Dictionary<string, Dictionary<string, int>> LanePos { get; init; } = [];
 
 	/// <summary>
 	/// Gets a number of last hits
@@ -316,7 +317,7 @@ public class MatchPlayer
 	/// Gets a dictionary with information on the life state of the player
 	/// </summary>
 	[JsonPropertyName("life_state")]
-	public Dictionary<string, long> LifeState { get; init; } = new();
+	public Dictionary<string, long> LifeState { get; init; } = [];
 
 	/// <summary>
 	/// Gets a dictionary with information on the highest damage instance the player inflicted
@@ -328,13 +329,13 @@ public class MatchPlayer
 	/// Gets a dictionary with information on the number of the number of multikills the player had
 	/// </summary>
 	[JsonPropertyName("multi_kills")]
-	public Dictionary<string, int> MultiKills { get; init; } = new();
+	public Dictionary<string, int> MultiKills { get; init; } = [];
 
 	/// <summary>
 	/// Gets a dictionary with information on where the player placed observer wards. The location takes the form (outer number, inner number) and are from ~64-192.
 	/// </summary>
 	[JsonPropertyName("obs")]
-	public Dictionary<string, Dictionary<string, int>> Obs { get; init; } = new();
+	public Dictionary<string, Dictionary<string, int>> Obs { get; init; } = [];
 
 	/// <summary>
 	/// Gets a list containing information on when and where the player left observer wards
@@ -392,7 +393,7 @@ public class MatchPlayer
 	/// Gets a dictionary containing information on the items the player purchased (item, times purchased)
 	/// </summary>
 	[JsonPropertyName("purchase")]
-	public Dictionary<string, long?> Purchase { get; init; } = new();
+	public Dictionary<string, long?> Purchase { get; init; } = [];
 
 	/// <summary>
 	/// Gets a list containing information on when items were purchased
@@ -428,7 +429,7 @@ public class MatchPlayer
 	/// Gets a dictionary with information about which runes the player picked up
 	/// </summary>
 	[JsonPropertyName("runes")]
-	public Dictionary<string, int> Runes { get; init; } = new();
+	public Dictionary<string, int> Runes { get; init; } = [];
 
 	/// <summary>
 	/// Gets a list with information on when runes were picked up
@@ -440,7 +441,7 @@ public class MatchPlayer
 	/// Gets an object with information on where sentries were placed. The location takes the form (outer number, inner number) and are from ~64-192.
 	/// </summary>
 	[JsonPropertyName("sen")]
-	public Dictionary<string, Dictionary<string, int>> Sen { get; init; } = new();
+	public Dictionary<string, Dictionary<string, int>> Sen { get; init; } = [];
 
 	/// <summary>
 	/// Gets a list containing information on when and where the player placed sentries
@@ -500,7 +501,7 @@ public class MatchPlayer
 	/// Gets a dictionary containing information on the sources of this player's experience
 	/// </summary>
 	[JsonPropertyName("xp_reasons")]
-	public Dictionary<string, int> XpReasons { get; init; } = new();
+	public Dictionary<string, int> XpReasons { get; init; } = [];
 
 	/// <summary>
 	/// Gets a list of experience at each minute of the game
@@ -555,14 +556,14 @@ public class MatchPlayer
 	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/lobby_type.json.
 	/// </summary>
 	[JsonPropertyName("lobby_type")]
-	public int LobbyType { get; init; }
+	public LobbyType LobbyType { get; init; }
 
 	/// <summary>
 	/// Gets an integer corresponding to game mode played.
 	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/game_mode.json.
 	/// </summary>
 	[JsonPropertyName("game_mode")]
-	public int GameMode { get; init; }
+	public GameMode GameMode { get; init; }
 
 	/// <summary>
 	/// Gets whether the player is a contributor to OpenDota or not
@@ -724,7 +725,7 @@ public class MatchPlayer
 	/// Gets a lane role
 	/// </summary>
 	[JsonPropertyName("lane_role")]
-	public int LaneRole { get; init; }
+	public LaneRole? LaneRole { get; init; }
 
 	/// <summary>
 	/// Gets a boolean referring to whether or not the player roamed
@@ -736,25 +737,25 @@ public class MatchPlayer
 	/// Gets object with information on when the player last purchased an item
 	/// </summary>
 	[JsonPropertyName("purchase_time")]
-	public Dictionary<string, int> PurchaseTime { get; init; } = new();
+	public Dictionary<string, int> PurchaseTime { get; init; } = [];
 
 	/// <summary>
 	/// Gets object with information on when the player first puchased an item
 	/// </summary>
 	[JsonPropertyName("first_purchase_time")]
-	public Dictionary<string, int> FirstPurchaseTime { get; init; } = new();
+	public Dictionary<string, int> FirstPurchaseTime { get; init; } = [];
 
 	/// <summary>
 	/// Gets object with information on whether or not the item won
 	/// </summary>
 	[JsonPropertyName("item_win")]
-	public Dictionary<string, int> ItemWin { get; init; } = new();
+	public Dictionary<string, int> ItemWin { get; init; } = [];
 
 	/// <summary>
 	/// Gets object containing binary integers that tell whether the item was purchased by the player (note: this is always 1)
 	/// </summary>
 	[JsonPropertyName("item_usage")]
-	public Dictionary<string, int> ItemUsage { get; init; } = new();
+	public Dictionary<string, int> ItemUsage { get; init; } = [];
 
 	/// <summary>
 	/// Gets a total number of TP scrolls purchased by the player

@@ -1,25 +1,51 @@
-﻿namespace OpenDotaDotNet.Routes.Teams;
+namespace OpenDotaDotNet.Routes.Teams;
 
 /// <inheritdoc />
-public class TeamsEndpoint(Requester requester) : ITeamsEndpoint
+[UsedImplicitly]
+public class TeamsEndpoint : ITeamsEndpoint
 {
-	/// <inheritdoc />
-	public Task<List<Team>?> GetTeamsAsync() =>
-		requester.GetResponseAsync<List<Team>>("teams");
+	private readonly Requester _requester;
 
 	/// <inheritdoc />
-	public Task<Team?> GetTeamByIdAsync(int teamId) =>
-		requester.GetResponseAsync<Team>($"teams/{teamId}");
+	public TeamsEndpoint(Requester requester)
+	{
+		_requester = requester;
+	}
 
 	/// <inheritdoc />
-	public Task<List<TeamMatch>?> GetTeamMatchesByIdAsync(int teamId) =>
-		requester.GetResponseAsync<List<TeamMatch>>($"teams/{teamId}/matches");
+	public string Endpoint => "teams";
 
 	/// <inheritdoc />
-	public Task<List<TeamPlayer>?> GetTeamPlayersByIdAsync(int teamId) =>
-		requester.GetResponseAsync<List<TeamPlayer>>($"teams/{teamId}/players");
+	public string Url => new Uri(baseUri: _requester.BaseAddress, relativeUri: Endpoint).AbsoluteUri;
+
 
 	/// <inheritdoc />
-	public Task<List<TeamHero>?> GetTeamHeroesByIdAsync(int teamId) =>
-		requester.GetResponseAsync<List<TeamHero>>($"teams/{teamId}/heroes");
+	public Task<List<Team>?> GetTeamsAsync()
+	{
+		return _requester.GetResponseAsync<List<Team>>(Endpoint);
+	}
+
+	/// <inheritdoc />
+	public Task<Team?> GetTeamByIdAsync(int teamId)
+	{
+		return _requester.GetResponseAsync<Team>($"{Endpoint}/{teamId}");
+	}
+
+	/// <inheritdoc />
+	public Task<List<TeamMatch>?> GetTeamMatchesByIdAsync(int teamId)
+	{
+		return _requester.GetResponseAsync<List<TeamMatch>>($"{Endpoint}/{teamId}/matches");
+	}
+
+	/// <inheritdoc />
+	public Task<List<TeamPlayer>?> GetTeamPlayersByIdAsync(int teamId)
+	{
+		return _requester.GetResponseAsync<List<TeamPlayer>>($"{Endpoint}/{teamId}/players");
+	}
+
+	/// <inheritdoc />
+	public Task<List<TeamHero>?> GetTeamHeroesByIdAsync(int teamId)
+	{
+		return _requester.GetResponseAsync<List<TeamHero>>($"{Endpoint}/{teamId}/heroes");
+	}
 }

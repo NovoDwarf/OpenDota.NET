@@ -3,6 +3,7 @@
 /// <summary>
 /// Represents a job.
 /// </summary>
+[UsedImplicitly]
 public class Job
 {
 	/// <summary>

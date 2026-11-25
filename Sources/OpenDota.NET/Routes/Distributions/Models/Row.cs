@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Distributions.Models;
+namespace OpenDotaDotNet.Routes.Distributions.Models;
 
 /// <summary>
 /// Represents a row.
 /// </summary>
+[PublicAPI]
 public class Row
 {
 	/// <summary>

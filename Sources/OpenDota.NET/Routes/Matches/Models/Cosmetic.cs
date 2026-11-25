@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Matches.Models;
+namespace OpenDotaDotNet.Routes.Matches.Models;
 
 /// <summary>
 /// Represents a cosmetic
 /// </summary>
+[PublicAPI]
 public class Cosmetic
 {
 	/// <summary>

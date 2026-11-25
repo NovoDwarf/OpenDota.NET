@@ -1,5 +1,7 @@
-﻿namespace OpenDotaDotNet.Routes.ProMatches.Models;
+namespace OpenDotaDotNet.Routes.ProMatches.Models;
 
+/// <summary>A professional match.</summary>
+[UsedImplicitly]
 public class ProMatch
 {
 	/// <summary>

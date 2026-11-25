@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Matches.Models;
+namespace OpenDotaDotNet.Routes.Matches.Models;
 
 /// <summary>
 /// Represents a match team.
 /// </summary>
+[PublicAPI]
 public class MatchTeam
 {
 	/// <summary>

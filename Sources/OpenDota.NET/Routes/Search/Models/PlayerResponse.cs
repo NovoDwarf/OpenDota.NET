@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Search.Models;
+namespace OpenDotaDotNet.Routes.Search.Models;
 
 /// <summary>
 /// Represents a response by PersonaName.
 /// </summary>
+[UsedImplicitly]
 public class PlayerResponse
 {
 	/// <summary>
@@ -32,6 +33,21 @@ public class PlayerResponse
 	/// <summary>
 	/// Gets similarity of the player.
 	/// </summary>
-	[JsonPropertyName("similarity")]
+	[JsonPropertyName("sml")]
 	public double Similarity { get; init; }
+
+	[JsonInclude]
+	[JsonPropertyName("similarity")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+	private double? DocumentedSimilarity
+	{
+		get => null;
+		init
+		{
+			if (value.HasValue)
+			{
+				Similarity = value.Value;
+			}
+		}
+	}
 }

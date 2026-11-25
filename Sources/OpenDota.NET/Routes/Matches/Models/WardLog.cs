@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Matches.Models;
+namespace OpenDotaDotNet.Routes.Matches.Models;
 
 /// <summary>
 /// Represents a ward log
 /// </summary>
+[PublicAPI]
 public class WardLog
 {
 	/// <summary>

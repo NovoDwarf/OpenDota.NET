@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Matches.Models;
+namespace OpenDotaDotNet.Routes.Matches.Models;
 
 /// <summary>
 /// Represents a connection log
 /// </summary>
+[PublicAPI]
 public class ConnectionLog
 {
 	/// <summary>
@@ -33,5 +34,5 @@ public class ConnectionLog
 	/// Gets type of log (should always be "connection_log")
 	/// </summary>
 	[JsonPropertyName("type")]
-	public string Type { get; init; }
+	public string Type { get; init; } = string.Empty;
 }

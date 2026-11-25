@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Distributions.Models;
+namespace OpenDotaDotNet.Routes.Distributions.Models;
 
 /// <summary>
 /// Represents a sum.
 /// </summary>
+[PublicAPI]
 public class Sum
 {
 	/// <summary>

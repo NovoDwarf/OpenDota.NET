@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Live.Models;
+namespace OpenDotaDotNet.Routes.Live.Models;
 
 /// <summary>
 /// Represents a player in a live game.
 /// </summary>
+[PublicAPI]
 public class LiveGamePlayer
 {
 	/// <summary>
@@ -57,17 +58,17 @@ public class LiveGamePlayer
 	/// Gets a value indicating whether the player is locked.
 	/// </summary>
 	[JsonPropertyName("is_locked")]
-	public bool IsLocked { get; init; }
+	public bool? IsLocked { get; init; }
 
 	/// <summary>
 	/// Gets a value indicating whether the player is pro.
 	/// </summary>
 	[JsonPropertyName("is_pro")]
-	public bool IsPro { get; init; }
+	public bool? IsPro { get; init; }
 
 	/// <summary>
 	/// TODO: IDK
 	/// </summary>
 	[JsonPropertyName("locked_until")]
-	public object? LockedUntil { get; init; }
+	public bool? LockedUntil { get; init; }
 }

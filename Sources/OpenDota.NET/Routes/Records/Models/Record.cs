@@ -1,5 +1,7 @@
-﻿namespace OpenDotaDotNet.Routes.Records.Models;
+namespace OpenDotaDotNet.Routes.Records.Models;
 
+/// <summary>A match record.</summary>
+[UsedImplicitly]
 public class Record
 {
 	/// <summary>

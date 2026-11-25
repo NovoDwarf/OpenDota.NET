@@ -1,8 +1,9 @@
-﻿namespace OpenDotaDotNet.Routes.Matches.Models;
+namespace OpenDotaDotNet.Routes.Matches.Models;
 
 /// <summary>
 /// Represents a pick or ban
 /// </summary>
+[PublicAPI]
 public class PickBan
 {
 	/// <summary>
