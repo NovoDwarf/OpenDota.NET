@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Sources/">
+    <Project Path="Sources/OpenDota.NET/OpenDota.NET.csproj" />
+  </Folder>
+  <Folder Name="/Tests/">
+    <Project Path="Tests/OpenDota.NET.Tests/OpenDota.NET.Tests.csproj" />
+  </Folder>
+</Solution>
