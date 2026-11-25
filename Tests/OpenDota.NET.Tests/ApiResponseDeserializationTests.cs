@@ -79,7 +79,7 @@ public class ApiResponseDeserializationTests
     public void LongConvertersAcceptLargeStringIds()
     {
         var options = new OpenDotaSettings().JsonSerializerOptions;
-        
+
         Assert.Equal(7406482053, JsonSerializer.Deserialize<long>("\"7406482053\"", options));
         Assert.Equal(7406482053, JsonSerializer.Deserialize<long?>("\"7406482053\"", options));
     }

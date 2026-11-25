@@ -23,15 +23,15 @@ public class OpenDotaSettings
 		Converters =
 		{
 			new StringToBooleanNull(), new StringToDoubleNull(),
-			new StringToIntNull(), 
+			new StringToIntNull(),
 			new StringToLongNull(),
 			new StringToDouble(),
-			new StringToInt(), 
+			new StringToInt(),
 			new StringToLong(),
 			new StringToEnumList<HeroRole>(),
-			new StringToEnum<HeroPrimaryAttribute>(), 
-			new StringToEnum<HeroAttackType>(), 
-			new StringToEnum<Tier>(), 
+			new StringToEnum<HeroPrimaryAttribute>(),
+			new StringToEnum<HeroAttackType>(),
+			new StringToEnum<Tier>(),
 			new StringToEnum<Scenario>()
 		},
 		IncludeFields = true,

@@ -16,7 +16,7 @@ public class HeroStatsEndpoint : IHeroStatsEndpoint
 
 	/// <inheritdoc />
 	public string Url => new Uri(baseUri: _requester.BaseAddress, relativeUri: Endpoint).AbsoluteUri;
-	
+
 	/// <inheritdoc />
 	public Task<List<Models.HeroStats>?> GetHeroStatsAsync()
 	{

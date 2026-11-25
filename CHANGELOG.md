@@ -21,4 +21,3 @@ This release is planned as the next major release after 4.0.0. Release versions 
 - Added top players and league detail, matches, match IDs, and teams endpoints.
 - `OpenDotaApi` implements `IDisposable`. Search accepts both `sml` and the documented `similarity` response field; health usage exposes `Limit`.
 - Added offline request and deserialization contract tests.
-

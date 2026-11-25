@@ -16,7 +16,7 @@ public class LiveEndpoint : ILiveEndpoint
 
 	/// <inheritdoc />
 	public string Url => new Uri(baseUri: _requester.BaseAddress, relativeUri: Endpoint).AbsoluteUri;
-	
+
 	/// <inheritdoc />
 	public Task<List<LiveGame>?> GetTopLiveGamesAsync()
 	{

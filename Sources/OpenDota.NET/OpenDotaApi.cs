@@ -18,9 +18,9 @@ public sealed class OpenDotaApi : IOpenDotaApi, IDisposable
 		configure?.Invoke(settings);
 
 		var request = new Requester(settings);
-		
+
 		_requester = request;
-		
+
 		Matches = new MatchesEndpoint(request);
 		Players = new PlayersEndpoint(request);
 		ProPlayers = new ProPlayersEndpoint(request);
@@ -119,7 +119,7 @@ public sealed class OpenDotaApi : IOpenDotaApi, IDisposable
 
 	/// <inheritdoc />
 	public ISearchEndpoint Search { get; }
-	
+
 	/// <inheritdoc />
 	public ITeamsEndpoint Teams { get; }
 }

@@ -16,7 +16,7 @@ public class SchemaEndpointTests
 		var result = await _openDotaApi.Schema.GetDatabaseSchemaAsync();
 		_testOutputHelper.WriteLine(result.ToJsonString());
 
-		if (result != null) 
+		if (result != null)
 			Assert.Contains(result, x => x.TableName == "api_key_usage");
 	}
 }

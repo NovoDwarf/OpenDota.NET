@@ -4,7 +4,7 @@ namespace OpenDotaDotNet.Utilities;
 public sealed class Requester : IDisposable
 {
     private const string OpenDotaApi = "https://api.opendota.com/api/";
-  
+
     private readonly HttpClient _httpClient;
     private readonly string? _apiKey;
     private readonly JsonSerializerOptions? _options;
@@ -28,13 +28,13 @@ public sealed class Requester : IDisposable
     internal async Task<T?> GetResponseAsync<T>(string url, List<string>? queryParameters = null) where T : class
     {
         using var response = await _httpClient.GetAsync(BuildUrl(url: url, queryParameters: queryParameters));
-      
+
         response.EnsureSuccessStatusCode();
-       
+
         var textResponse = await response.Content.ReadAsStringAsync();
-      
+
         return string.IsNullOrEmpty(textResponse)
-            ? null 
+            ? null
             : JsonSerializer.Deserialize<T>(json: textResponse, options: _options);
     }
 
@@ -52,13 +52,13 @@ public sealed class Requester : IDisposable
     private string BuildUrl(string url, List<string>? queryParameters = null)
     {
         var arguments = new List<string>();
-       
+
         if (queryParameters != null)
         {
             foreach (var parameter in queryParameters)
             {
                 var separator = parameter.IndexOf('=');
-               
+
                 if (separator < 0)
                     throw new ArgumentException(message: "Query parameters must contain an equals sign.", paramName: nameof(queryParameters));
 
@@ -66,10 +66,10 @@ public sealed class Requester : IDisposable
             }
         }
 
-        if (_apiKey != null) 
+        if (_apiKey != null)
             arguments.Add($"api_key={Uri.EscapeDataString(_apiKey)}");
 
-        return arguments.Count == 0 
+        return arguments.Count == 0
             ? url
             : $"{url}?{string.Join(separator: "&", values: arguments)}";
     }

@@ -79,7 +79,7 @@ public interface IOpenDotaApi
 
 	/// <inheritdoc cref="ISearchEndpoint" />
 	public ISearchEndpoint Search { get; }
-	
+
 	/// <inheritdoc cref="ITeamsEndpoint" />
 	///
 	public ITeamsEndpoint Teams { get; }
