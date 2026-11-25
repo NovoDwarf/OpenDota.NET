@@ -12,7 +12,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(MSBuildProjectName)' == 'OpenDota.NET'">
+  <PropertyGroup Condition="'$(MSBuildProjectName)' == 'OpenDota.NET' Or '$(MSBuildProjectName)' == 'OpenDota.NET.Microsoft.DependencyInjection'">
     <Authors>$(ProjectAuthors)</Authors>
     <Copyright>$(ProjectCopyright)</Copyright>
     <PackageProjectUrl>$(ProjectRepositoryUrl)</PackageProjectUrl>
@@ -24,8 +24,17 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <Company>d1rknwh1te3</Company>
     <Description>.NET wrapper for the OpenDota API. The OpenDota API provides Dota 2 related data including advanced match data extracted from match replays.</Description>
+
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(MSBuildProjectName)' == 'OpenDota.NET'">
     <PackageId>OpenDota.NET.Remade</PackageId>
     <Title>OpenDota.NET Remade</Title>
     <Product>OpenDota.NET Remade</Product>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(MSBuildProjectName)' == 'OpenDota.NET.Microsoft.DependencyInjection'">
+    <PackageId>OpenDota.NET.Remade.Microsoft.DependencyInjection</PackageId>
+    <Title>OpenDota.NET Microsoft Dependency Injection</Title>
+    <Product>OpenDota.NET Remade</Product>
+    <Description>Microsoft.Extensions.DependencyInjection integration for OpenDota.NET.</Description>
   </PropertyGroup>
 </Project>
