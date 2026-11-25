@@ -1,3 +1,9 @@
+using OpenDota.NET.Enums;
+using OpenDota.NET.Extensions;
+using OpenDota.NET.Routes.Scenarios.Enums;
+using OpenDota.NET.Routes.Scenarios.Models;
+using OpenDota.NET.Utilities;
+
 namespace OpenDota.NET.Routes.Scenarios;
 
 /// <inheritdoc />

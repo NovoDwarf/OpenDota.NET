@@ -1,3 +1,6 @@
+using OpenDota.NET.Routes.Search.Models;
+using OpenDota.NET.Utilities;
+
 namespace OpenDota.NET.Routes.Search;
 
 /// <inheritdoc />

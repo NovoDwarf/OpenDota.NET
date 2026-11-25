@@ -1,3 +1,5 @@
+using OpenDota.NET.Routes.Teams.Models;
+
 namespace OpenDota.NET.Routes.Teams;
 
 /// <summary>

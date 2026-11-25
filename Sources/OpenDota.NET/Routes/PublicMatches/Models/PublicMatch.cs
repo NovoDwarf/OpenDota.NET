@@ -1,3 +1,5 @@
+using OpenDota.NET.Enums;
+
 namespace OpenDota.NET.Routes.PublicMatches.Models;
 
 /// <summary>

@@ -1,3 +1,5 @@
+using OpenDota.NET.Routes.HeroStats.Enums;
+
 namespace OpenDota.NET.Routes.HeroStats.Models;
 
 /// <summary>

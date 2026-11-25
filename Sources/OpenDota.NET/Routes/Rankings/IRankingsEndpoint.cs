@@ -1,3 +1,5 @@
+using OpenDota.NET.Routes.Rankings.Models;
+
 namespace OpenDota.NET.Routes.Rankings;
 
 /// <summary>

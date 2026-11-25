@@ -1,3 +1,5 @@
+using OpenDota.NET.Enums;
+
 namespace OpenDota.NET.Routes.Players.Models;
 
 /// <summary>

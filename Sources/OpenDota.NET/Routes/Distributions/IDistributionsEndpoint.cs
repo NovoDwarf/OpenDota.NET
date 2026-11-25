@@ -1,3 +1,5 @@
+using OpenDota.NET.Routes.Distributions.Models;
+
 namespace OpenDota.NET.Routes.Distributions;
 
 /// <summary>

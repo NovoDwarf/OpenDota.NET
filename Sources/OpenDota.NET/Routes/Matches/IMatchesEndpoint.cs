@@ -1,3 +1,5 @@
+using OpenDota.NET.Routes.Matches.Models;
+
 namespace OpenDota.NET.Routes.Matches;
 
 /// <summary>

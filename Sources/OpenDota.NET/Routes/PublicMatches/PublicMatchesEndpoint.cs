@@ -1,3 +1,6 @@
+using OpenDota.NET.Routes.PublicMatches.Models;
+using OpenDota.NET.Utilities;
+
 namespace OpenDota.NET.Routes.PublicMatches;
 
 /// <inheritdoc />

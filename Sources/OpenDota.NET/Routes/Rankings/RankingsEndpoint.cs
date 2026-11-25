@@ -1,3 +1,6 @@
+using OpenDota.NET.Routes.Rankings.Models;
+using OpenDota.NET.Utilities;
+
 namespace OpenDota.NET.Routes.Rankings;
 
 /// <summary>Provides access to the rankings endpoint.</summary>

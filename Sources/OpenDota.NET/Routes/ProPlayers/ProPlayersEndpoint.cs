@@ -1,3 +1,6 @@
+using OpenDota.NET.Routes.ProPlayers.Models;
+using OpenDota.NET.Utilities;
+
 namespace OpenDota.NET.Routes.ProPlayers;
 
 /// <inheritdoc />

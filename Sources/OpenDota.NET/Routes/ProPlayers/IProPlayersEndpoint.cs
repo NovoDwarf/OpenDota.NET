@@ -1,3 +1,5 @@
+using OpenDota.NET.Routes.ProPlayers.Models;
+
 namespace OpenDota.NET.Routes.ProPlayers;
 
 /// <summary>

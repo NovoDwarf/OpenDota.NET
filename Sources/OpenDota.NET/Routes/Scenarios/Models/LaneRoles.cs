@@ -1,4 +1,6 @@
-﻿namespace OpenDota.NET.Routes.Scenarios.Models;
+﻿using OpenDota.NET.Enums;
+
+namespace OpenDota.NET.Routes.Scenarios.Models;
 
 /// <summary>
 /// Represents lane roles.

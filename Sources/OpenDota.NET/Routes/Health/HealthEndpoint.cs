@@ -1,3 +1,6 @@
+using OpenDota.NET.Routes.Health.Models;
+using OpenDota.NET.Utilities;
+
 namespace OpenDota.NET.Routes.Health;
 
 /// <inheritdoc />

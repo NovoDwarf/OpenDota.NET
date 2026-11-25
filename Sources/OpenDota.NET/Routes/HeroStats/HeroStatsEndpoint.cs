@@ -1,4 +1,6 @@
-﻿namespace OpenDota.NET.Routes.HeroStats;
+﻿using OpenDota.NET.Utilities;
+
+namespace OpenDota.NET.Routes.HeroStats;
 
 /// <inheritdoc />
 public class HeroStatsEndpoint : IHeroStatsEndpoint

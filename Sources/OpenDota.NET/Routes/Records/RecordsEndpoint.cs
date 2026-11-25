@@ -1,3 +1,8 @@
+using OpenDota.NET.Extensions;
+using OpenDota.NET.Routes.Records.Enums;
+using OpenDota.NET.Routes.Records.Models;
+using OpenDota.NET.Utilities;
+
 namespace OpenDota.NET.Routes.Records;
 
 /// <inheritdoc />

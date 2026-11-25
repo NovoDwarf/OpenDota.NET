@@ -1,3 +1,6 @@
+using OpenDota.NET.Routes.Schema.Models;
+using OpenDota.NET.Utilities;
+
 namespace OpenDota.NET.Routes.Schema;
 
 /// <summary>Provides access to the schema endpoint.</summary>

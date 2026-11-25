@@ -1,3 +1,6 @@
+using OpenDota.NET.Routes.Teams.Models;
+using OpenDota.NET.Utilities;
+
 namespace OpenDota.NET.Routes.Teams;
 
 /// <inheritdoc />

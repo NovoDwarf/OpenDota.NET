@@ -1,3 +1,5 @@
+using OpenDota.NET.Routes.Live.Models;
+
 namespace OpenDota.NET.Routes.Live;
 
 /// <summary>

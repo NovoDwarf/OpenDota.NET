@@ -1,3 +1,6 @@
+using OpenDota.NET.Routes.Records.Enums;
+using OpenDota.NET.Routes.Records.Models;
+
 namespace OpenDota.NET.Routes.Records;
 
 /// <summary>

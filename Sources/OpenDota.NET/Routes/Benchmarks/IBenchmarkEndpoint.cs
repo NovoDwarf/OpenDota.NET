@@ -1,3 +1,5 @@
+using OpenDota.NET.Routes.Benchmarks.Models;
+
 namespace OpenDota.NET.Routes.Benchmarks;
 
 /// <summary>

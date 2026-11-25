@@ -1,3 +1,5 @@
+using OpenDota.NET.Routes.ProMatches.Models;
+
 namespace OpenDota.NET.Routes.ProMatches;
 
 /// <summary>

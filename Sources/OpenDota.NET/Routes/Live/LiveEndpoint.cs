@@ -1,4 +1,7 @@
-﻿namespace OpenDota.NET.Routes.Live;
+﻿using OpenDota.NET.Routes.Live.Models;
+using OpenDota.NET.Utilities;
+
+namespace OpenDota.NET.Routes.Live;
 
 /// <inheritdoc />
 public class LiveEndpoint : ILiveEndpoint

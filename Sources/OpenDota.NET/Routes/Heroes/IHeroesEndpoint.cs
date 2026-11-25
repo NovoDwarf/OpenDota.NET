@@ -1,3 +1,5 @@
+using OpenDota.NET.Routes.Heroes.Models;
+
 namespace OpenDota.NET.Routes.Heroes;
 
 /// <summary>
