@@ -1,14 +1,16 @@
-﻿namespace OpenDotaDotNet;
+namespace OpenDotaDotNet;
 
 // TODO: Implement PLAYERS BY RANK endpoint
 
-/// <inheritdoc />
-public class OpenDotaApi : IOpenDotaApi
+/// <inheritdoc cref="IOpenDotaApi" />
+public sealed class OpenDotaApi : IOpenDotaApi, IDisposable
 {
+	private readonly Requester _requester;
+
 	/// <summary>
 	/// Creates new instance of <see cref="OpenDotaApi"/>
 	/// </summary>
-	/// <param name="configure">The configure.</param>
+	/// <param name="configure">Action to configure <see cref="OpenDotaSettings"/></param>
 	public OpenDotaApi(Action<OpenDotaSettings>? configure = null)
 	{
 		var settings = new OpenDotaSettings();
@@ -16,6 +18,8 @@ public class OpenDotaApi : IOpenDotaApi
 		configure?.Invoke(settings);
 
 		var request = new Requester(settings);
+		
+		_requester = request;
 		
 		Matches = new MatchesEndpoint(request);
 		Players = new PlayersEndpoint(request);
@@ -41,6 +45,12 @@ public class OpenDotaApi : IOpenDotaApi
 		Scenarios = new ScenariosEndpoint(request);
 		Schema = new SchemaEndpoint(request);
 		Constants = new ConstantsEndpoint(request);
+	}
+
+	/// <summary>Releases the HTTP resources owned by this client.</summary>
+	public void Dispose()
+	{
+		_requester.Dispose();
 	}
 
 	/// <inheritdoc />
