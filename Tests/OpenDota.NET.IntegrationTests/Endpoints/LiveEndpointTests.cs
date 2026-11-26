@@ -19,6 +19,5 @@ public class LiveEndpointTests
 		Assert.NotNull(result);
 		Assert.Equal(100, result.Count);
 		Assert.True(result.TrueForAll(x => !string.IsNullOrWhiteSpace(x.LobbyId)));
-		Assert.True(result.TrueForAll(x => x.Players.Count >= 0));
 	}
 }

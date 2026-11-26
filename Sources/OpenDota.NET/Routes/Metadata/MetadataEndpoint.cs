@@ -7,7 +7,8 @@ public class MetadataEndpoint : IMetadataEndpoint
 {
 	private readonly Requester _requester;
 
-	/// <inheritdoc />
+	/// <summary>Creates an instance of <see cref="MetadataEndpoint" />.</summary>
+	/// <param name="requester">The requester used to send API requests.</param>
 	public MetadataEndpoint(Requester requester)
 	{
 		_requester = requester;

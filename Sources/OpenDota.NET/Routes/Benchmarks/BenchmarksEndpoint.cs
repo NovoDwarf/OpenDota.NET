@@ -8,7 +8,8 @@ public class BenchmarksEndpoint : IBenchmarkEndpoint
 {
 	private readonly Requester _requester;
 
-	/// <inheritdoc />
+	/// <summary>Creates an instance of <see cref="BenchmarksEndpoint" />.</summary>
+	/// <param name="requester">The requester used to send API requests.</param>
 	public BenchmarksEndpoint(Requester requester)
 	{
 		_requester = requester;

@@ -9,7 +9,8 @@ public class PlayersEndpoint : IPlayersEndpoint
 {
 	private readonly Requester _requester;
 
-	/// <inheritdoc />
+	/// <summary>Creates an instance of <see cref="PlayersEndpoint" />.</summary>
+	/// <param name="requester">The requester used to send API requests.</param>
 	public PlayersEndpoint(Requester requester)
 	{
 		_requester = requester;
@@ -137,7 +138,7 @@ public class PlayersEndpoint : IPlayersEndpoint
 	/// <inheritdoc />
 	public async Task<bool> RefreshPlayerMatchHistoryAsync(long accountId)
 	{
-		using var response = await _requester.PostRequestAsync(url: $"{Endpoint}/{accountId}/refresh");
+		using var response = await _requester.PostRequestAsync(url: $"{Endpoint}/{accountId}/refresh").ConfigureAwait(false);
 		response.EnsureSuccessStatusCode();
 
 		return true;

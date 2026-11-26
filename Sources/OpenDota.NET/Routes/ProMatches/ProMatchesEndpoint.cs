@@ -9,7 +9,8 @@ public class ProMatchesEndpoint : IProMatchEndpoint
 {
 	private readonly Requester _requester;
 
-	/// <inheritdoc />
+	/// <summary>Creates an instance of <see cref="ProMatchesEndpoint" />.</summary>
+	/// <param name="requester">The requester used to send API requests.</param>
 	public ProMatchesEndpoint(Requester requester)
 	{
 		_requester = requester;

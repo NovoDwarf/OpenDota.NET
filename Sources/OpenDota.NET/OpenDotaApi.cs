@@ -26,8 +26,6 @@ using OpenDota.NET.Utilities;
 
 namespace OpenDota.NET;
 
-// TODO: Implement PLAYERS BY RANK endpoint
-
 /// <inheritdoc cref="IOpenDotaApi" />
 public sealed class OpenDotaApi : IOpenDotaApi, IDisposable
 {

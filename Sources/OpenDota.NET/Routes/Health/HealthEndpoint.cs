@@ -8,7 +8,8 @@ public class HealthEndpoint : IHealthEndpoint
 {
 	private readonly Requester _requester;
 
-	/// <inheritdoc />
+	/// <summary>Creates an instance of <see cref="HealthEndpoint" />.</summary>
+	/// <param name="requester">The requester used to send API requests.</param>
 	public HealthEndpoint(Requester requester)
 	{
 		_requester = requester;

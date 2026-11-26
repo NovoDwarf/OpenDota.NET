@@ -8,7 +8,8 @@ public class MatchesEndpoint : IMatchesEndpoint
 {
 	private readonly Requester _requester;
 
-	/// <inheritdoc />
+	/// <summary>Creates an instance of <see cref="MatchesEndpoint" />.</summary>
+	/// <param name="requester">The requester used to send API requests.</param>
 	public MatchesEndpoint(Requester requester)
 	{
 		_requester = requester;

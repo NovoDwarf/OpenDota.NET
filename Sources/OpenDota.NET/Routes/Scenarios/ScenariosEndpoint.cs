@@ -12,7 +12,8 @@ public class ScenariosEndpoint : IScenariosEndpoint
 {
 	private readonly Requester _requester;
 
-	/// <inheritdoc />
+	/// <summary>Creates an instance of <see cref="ScenariosEndpoint" />.</summary>
+	/// <param name="requester">The requester used to send API requests.</param>
 	public ScenariosEndpoint(Requester requester)
 	{
 		_requester = requester;
@@ -54,16 +55,16 @@ public class ScenariosEndpoint : IScenariosEndpoint
 		var addedArguments = new List<string>();
 
 		if (item != null)
-			addedArguments.Add(item: $"item={item}");
+			addedArguments.Add($"item={item}");
 
 		if (heroId != null)
-			addedArguments.Add(item: $"hero_id={heroId}");
+			addedArguments.Add($"hero_id={heroId}");
 
 		if (laneRole != null)
-			addedArguments.Add(item: $"lane_role={(int)laneRole.Value}");
+			addedArguments.Add($"lane_role={(int)laneRole.Value}");
 
 		if (scenario != null)
-			addedArguments.Add(item: $"scenario={scenario.ToSnakeCase()}");
+			addedArguments.Add($"scenario={scenario.Value.ToSnakeCase()}");
 
 		return addedArguments;
 	}

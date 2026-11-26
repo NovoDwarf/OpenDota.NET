@@ -32,6 +32,18 @@ public class ApiResponseDeserializationTests
     }
 
     [Fact]
+    public void MatchPlayerReadsObservedAbilityTargets()
+    {
+        const string json = """{"ability_targets":{"tidehunter_gush":{"npc_dota_hero_spectre":4}}}""";
+        var options = new OpenDotaSettings().JsonSerializerOptions;
+
+        var player = JsonSerializer.Deserialize<MatchPlayer>(json, options);
+
+        Assert.NotNull(player);
+        Assert.Equal(4, player.AbilityTargets["tidehunter_gush"]["npc_dota_hero_spectre"]);
+    }
+
+    [Fact]
     public void MatchAndLeagueResponsesUseSameLeagueContract()
     {
         const string json = """{"leagueid":15728,"ticket":null,"banner":"banner","tier":"premium","name":"The International"}""";
