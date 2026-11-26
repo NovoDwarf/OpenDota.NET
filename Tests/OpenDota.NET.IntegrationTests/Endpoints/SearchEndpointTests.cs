@@ -19,11 +19,11 @@ public class SearchEndpointTests
 		Assert.NotNull(result);
 		Assert.Equal(50, result.Count);
 
-		Assert.Contains(result, x => x.LastMatchTime > new DateTime(2000, 1, 1));
+		Assert.Contains(result, x => x.LastMatchTime > new DateTimeOffset(2000, 1, 1, 0, 0, 0, TimeSpan.Zero));
 
 		Assert.True(result.TrueForAll(x => x.AccountId > 0));
 		Assert.True(result.TrueForAll(x => x.Similarity > 0));
-		Assert.True(result.TrueForAll(x => !x.LastMatchTime.HasValue || x.LastMatchTime > new DateTime(2000, 1, 1)));
+		Assert.True(result.TrueForAll(x => !x.LastMatchTime.HasValue || x.LastMatchTime > new DateTimeOffset(2000, 1, 1, 0, 0, 0, TimeSpan.Zero)));
 		Assert.True(result.TrueForAll(x => !string.IsNullOrWhiteSpace(x.PersonaName)));
 		Assert.True(result.TrueForAll(x => !string.IsNullOrWhiteSpace(x.AvatarFull?.ToString())));
 	}

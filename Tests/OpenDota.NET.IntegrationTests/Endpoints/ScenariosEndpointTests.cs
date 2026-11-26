@@ -37,7 +37,7 @@ public class ScenariosEndpointTests
 		const LaneRole laneId = LaneRole.Offlane; // Offlane
 		const int heroId = 40; // Venomancer
 
-		var result = await _openDotaApi.Scenarios.GetLaneRolesAsync(laneId, heroId); // TODO: FIX THIS SHIT
+		var result = await _openDotaApi.Scenarios.GetLaneRolesAsync(laneId, heroId);
 
 		_testOutputHelper.WriteLine(result.ToJsonString());
 

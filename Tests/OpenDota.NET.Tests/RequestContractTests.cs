@@ -119,6 +119,23 @@ public class RequestContractTests
     }
 
     [Fact]
+    public async Task LaneRolesUsesNumericFiltersAndReadsResponse()
+    {
+        var handler = new RecordingHandler("""[{"hero_id":40,"lane_role":3,"time":900,"games":"8","wins":"1"}]""");
+        using var requester = new Requester(new OpenDotaSettings(), handler);
+        var endpoint = new ScenariosEndpoint(requester);
+
+        var result = await endpoint.GetLaneRolesAsync(LaneRole.Offlane, 40);
+
+        Assert.Equal("?hero_id=40&lane_role=3", handler.Uri!.Query);
+        var role = Assert.Single(result!);
+        Assert.Equal(40, role.HeroId);
+        Assert.Equal(LaneRole.Offlane, role.LaneRole);
+        Assert.Equal(8, role.Games);
+        Assert.Equal(1, role.Wins);
+    }
+
+    [Fact]
     public async Task SearchEncodesQueryAndApiKey()
     {
         var handler = new RecordingHandler("[]");
