@@ -8,7 +8,8 @@ public class LiveEndpoint : ILiveEndpoint
 {
 	private readonly Requester _requester;
 
-	/// <inheritdoc />
+	/// <summary>Creates an instance of <see cref="LiveEndpoint" />.</summary>
+	/// <param name="requester">The requester used to send API requests.</param>
 	public LiveEndpoint(Requester requester)
 	{
 		_requester = requester;

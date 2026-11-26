@@ -9,7 +9,8 @@ public class ConstantsEndpoint : IConstantsEndpoint
 {
 	private readonly Requester _requester;
 
-	/// <inheritdoc />
+	/// <summary>Creates an instance of <see cref="ConstantsEndpoint" />.</summary>
+	/// <param name="requester">The requester used to send API requests.</param>
 	public ConstantsEndpoint(Requester requester)
 	{
 		_requester = requester;

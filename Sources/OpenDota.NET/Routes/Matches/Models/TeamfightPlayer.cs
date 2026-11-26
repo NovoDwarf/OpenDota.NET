@@ -18,7 +18,7 @@ public class TeamfightPlayer
 	[JsonPropertyName("ability_uses")]
 	public Dictionary<string, int> AbilityUses { get; init; } = [];
 
-	// TODO: No value is returned for this param
+	// TODO: Confirm the shape of non-empty ability_targets before adding this property.
 	// [JsonPropertyName("ability_targets")]
 	// public MyWordCounts AbilityTargets { get; init; }
 

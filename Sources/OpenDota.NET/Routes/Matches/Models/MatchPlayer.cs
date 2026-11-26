@@ -20,7 +20,6 @@ public class MatchPlayer
 	[JsonPropertyName("player_slot")]
 	public int PlayerSlot { get; init; }
 
-	// TODO: Check if this actually works???
 	/// <summary>
 	/// Gets object containing information on who the player used their abilities on
 	/// </summary>

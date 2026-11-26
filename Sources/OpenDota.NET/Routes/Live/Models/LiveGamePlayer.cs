@@ -24,9 +24,7 @@ public class LiveGamePlayer
 	[JsonPropertyName("name")]
 	public string Name { get; init; } = string.Empty;
 
-	/// <summary>
-	/// 
-	/// </summary>
+	/// <summary>The player country code.</summary>
 	[JsonPropertyName("country_code")]
 	public string CountryCode { get; init; } = string.Empty;
 

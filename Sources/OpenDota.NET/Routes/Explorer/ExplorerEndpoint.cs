@@ -7,7 +7,8 @@ public class ExplorerEndpoint : IExplorerEndpoint
 {
 	private readonly Requester _requester;
 
-	/// <inheritdoc />
+	/// <summary>Creates an instance of <see cref="ExplorerEndpoint" />.</summary>
+	/// <param name="requester">The requester used to send API requests.</param>
 	public ExplorerEndpoint(Requester requester)
 	{
 		_requester = requester;

@@ -9,7 +9,8 @@ public class SearchEndpoint : ISearchEndpoint
 {
 	private readonly Requester _requester;
 
-	/// <inheritdoc />
+	/// <summary>Creates an instance of <see cref="SearchEndpoint" />.</summary>
+	/// <param name="requester">The requester used to send API requests.</param>
 	public SearchEndpoint(Requester requester)
 	{
 		_requester = requester;

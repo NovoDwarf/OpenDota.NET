@@ -8,7 +8,8 @@ public class DistributionsEndpoint : IDistributionsEndpoint
 {
 	private readonly Requester _requester;
 
-	/// <inheritdoc />
+	/// <summary>Creates an instance of <see cref="DistributionsEndpoint" />.</summary>
+	/// <param name="requester">The requester used to send API requests.</param>
 	public DistributionsEndpoint(Requester requester)
 	{
 		_requester = requester;

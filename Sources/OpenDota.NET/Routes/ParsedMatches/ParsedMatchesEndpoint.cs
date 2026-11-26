@@ -8,7 +8,8 @@ public class ParsedMatchesEndpoint : IParsedMatchesEndpoint
 {
 	private readonly Requester _requester;
 
-	/// <inheritdoc />
+	/// <summary>Creates an instance of <see cref="ParsedMatchesEndpoint" />.</summary>
+	/// <param name="requester">The requester used to send API requests.</param>
 	public ParsedMatchesEndpoint(Requester requester)
 	{
 		_requester = requester;

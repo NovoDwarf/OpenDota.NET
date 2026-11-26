@@ -7,7 +7,8 @@ public class HeroStatsEndpoint : IHeroStatsEndpoint
 {
 	private readonly Requester _requester;
 
-	/// <inheritdoc />
+	/// <summary>Creates an instance of <see cref="HeroStatsEndpoint" />.</summary>
+	/// <param name="requester">The requester used to send API requests.</param>
 	public HeroStatsEndpoint(Requester requester)
 	{
 		_requester = requester;
