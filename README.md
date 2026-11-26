@@ -49,5 +49,3 @@ dotnet run --project Tests/OpenDota.NET.Tests -f net9.0
 dotnet run --project Tests/OpenDota.NET.Microsoft.DependencyInjection.Tests -f net9.0
 dotnet run --project Tests/OpenDota.NET.IntegrationTests -f net9.0 -- -maxThreads 2
 ```
-
-Integration tests call the live OpenDota API and depend on its availability and rate limits. See [CHANGELOG.md](CHANGELOG.md) for breaking changes.

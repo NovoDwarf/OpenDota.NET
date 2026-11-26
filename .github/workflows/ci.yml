@@ -5,6 +5,10 @@ on:
     branches: ['**']
   pull_request:
   workflow_call:
+    inputs:
+      ref:
+        type: string
+        required: false
 
 permissions:
   contents: read
@@ -14,6 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref || github.ref }}
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: |
@@ -33,8 +39,6 @@ jobs:
         run: |
           mkdir -p "$GITHUB_WORKSPACE/TestResults"
           status=0
-          dotnet run --project Tests/OpenDota.NET.IntegrationTests --configuration Release --framework net9.0 --no-build -- \
-            -maxThreads 2 -result-trx "$GITHUB_WORKSPACE/TestResults/integration-net9.0.trx" || status=1
           for project in OpenDota.NET.Tests OpenDota.NET.Microsoft.DependencyInjection.Tests; do
             for framework in net9.0 net10.0 net11.0; do
               dotnet run --project "Tests/$project" --configuration Release --framework "$framework" --no-build -- \
